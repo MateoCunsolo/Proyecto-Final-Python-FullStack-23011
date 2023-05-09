@@ -1,0 +1,332 @@
+   /* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Estilos del header */
+header {
+    background-color: #69c7ca;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border-radius: 100px;
+    color: #fff;
+    padding: 4px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr; 
+    grid-template-areas: 
+      "menu titulo redes salir";
+}
+
+header img
+{
+    width: 30px;
+}
+header a
+{
+    text-decoration: none; /* Elimina el subrayado del link de texto */
+}
+
+header input
+{
+    
+    border: solid #69c7ca;
+    border-radius: 10px;
+    width: 600px;
+    height: 30px;
+}
+
+header button
+{
+    color: white;
+    background-color: rgb(59, 60, 65);
+    border-radius: 400px;
+}
+header button:hover
+{
+    color: rgb(0, 0, 0);
+    background-color: rgba(59, 60, 65, 0);
+    border-radius: 400px;
+}
+.redes
+{   
+    margin-top:5px;
+    margin-left: 100px;
+    grid-area: redes;
+}
+.salir
+{
+    margin-top:10px;
+    grid-area: salir;
+}
+.titulo
+{
+    grid-area: titulo;
+}
+
+h1 {
+    margin: 0;
+}
+
+
+.close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .close-button i {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+  }
+  
+
+/* CONTENEDOR DEL NAV Y EL GRID DE PRODUCTOS */
+.container-nav-productos{
+    display: grid;
+    grid-template-columns: 1fr 6fr; /* Primera columna: 1fr, Segunda columna: 6fr */
+    grid-template-areas: 
+      "nav fotproductos";
+  }
+
+/* CONTENEDOR DE PRODUCTOS Y EL FOOTER */
+.container-prductos-footer
+{
+    display: grid;
+    grid-area: fotproductos;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr; 
+    grid-template-areas: 
+      "productos"
+      "pie";
+}
+
+/* CONJUNTO DE PRODCUTOS, SU GRID*/
+.productos {
+    display: grid;
+    grid-area: productos;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, auto);
+}
+
+/* SILDEBAR NAV, INFO PERFIL + FILTROS */
+.nav{
+    padding: 5px;
+    display: grid;
+    grid-area: nav;
+    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-rows: 1fr 2fr; /* Dos filas */
+    grid-template-areas:
+      "filtros"   /* cambie por perfil por filtros, funcionalidad de perfil lo dejamos  para lo ultimo si llegamos */
+      "filtros";
+}
+.filtros
+{
+    padding: 10px;
+    border-radius: 10px;
+    grid-area: filtros;
+}
+
+.filtros .close-button {
+    margin: 10px;
+    background-color: transparent;
+    border: solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+
+}
+.filtros .close-button:hover{
+    background-color: #69c7ca;;
+    cursor: pointer;
+}
+
+.filtros li:hover
+{
+    cursor: pointer;
+    color: blue;
+}
+
+.filtros h5
+{
+    text-decoration: underline;
+}
+
+.perfil
+{
+    padding: 10px;
+    grid-area: perfil;
+
+}
+.perfil h3,
+.filtros h3
+{
+    border: solid #69c7ca;;
+    background-color: #69c7ca;;
+    border-radius: 20px;
+    margin:0;
+}
+.perfil img
+{
+    height: 100px;
+    width: 100px;
+}
+
+/* PRODUCTO */
+.producto {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+}
+
+.producto img {
+    width: 150px;
+    height: 150px;
+    margin: center;
+}
+
+.producto h3 {
+    margin: 0;
+}
+
+.producto button
+{
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 30px;
+}
+
+.producto button:hover 
+{
+    background-color: blue;
+}
+
+.pie{
+    display: flex;
+    align-items: center;
+    grid-area: pie;
+}
+    
+.pie h4{
+    color: gray;
+    margin-left: 0;
+}
+    
+.pie button {
+    color: gray;
+    background-color: transparent;
+    border: none;
+}
+    
+.pie button:hover {
+    color: blue;
+}
+
+/*----------puntos de corte-----------------*/
+
+/*tablet*/
+@media screen and (max-width: 768px)
+{
+    
+    header {
+        background-color: #69c7ca;;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        border-radius: 100px;
+        color: #fff;
+        padding: 4px;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 4fr 1fr; 
+        grid-template-areas: 
+        "titulo redes";
+    }
+
+    .container-nav-productos{
+        grid-template-areas: 
+          "fotproductos fotproductos";
+      }
+    
+    .nav
+    {
+        display: none;
+    }
+
+    .productos {
+        display: grid;
+        grid-area: productos;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, auto);
+    }
+
+    .pie
+    {
+        margin-left: 10px;
+    }
+
+    header img
+    {
+        margin-top: 5px;
+        width: 30px;
+    }
+
+}
+    
+/*celular*/
+@media screen and (max-width: 450px) 
+{   
+      
+    header {
+        background-color: #69c7ca;;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-left: 5px;
+        border-radius: 60px;
+        color: #fff;
+        padding: 4px;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr; 
+        grid-template-areas: 
+        "redes";
+    }
+
+    header h1
+    {
+            display: none;
+    }
+
+    .container-nav-productos{
+        grid-template-areas: 
+          "fotproductos fotproductos";
+      }
+    
+    .nav
+    {
+        display: none;
+    }
+
+    .productos {
+        display: grid;
+        grid-area: productos;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(10, auto);
+    }
+
+    .pie
+    {
+        margin-left: 10px;
+    }
+
+}
+
