@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--links de estilos -->
+    <link rel="stylesheet" href="style-shop.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+    <!-- Link icon -->
+    <link rel="icon" href="icono.ico">
+  
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+    <title>Pet-shop</title>
+</head>
+
+<body>
+
+    <header class="contenedor-header">
+
+        <div class="titulo">
+            <input id="buscar" class="buscar" placeholder="  Buscar... (minimo 3 letras)">
+            <button class="close-button" id="borrar-busquedad">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="redes">
+            <a href="https://twitter.com/home?lang=es">
+                <img src="Icons Redes Sociales/twitter.png" alt="Twiter">
+            </a>
+
+            <a href="https://www.facebook.com/">
+                <img src="Icons Redes Sociales/facebook.png" alt="Facebook">
+            </a>
+
+            <a href="https://www.whatsapp.com/">
+                <img src="Icons Redes Sociales/whatsapp.png" alt="Whatsapp">
+            </a>
+
+            <a href="https://www.instagram.com/">
+                <img src="Icons Redes Sociales/instagram.png" alt="Instagram">
+            </a>
+        </div>
+
+        <div class="salir">
+            <a href="inicio.html">Volver al incio</a>
+        </div>
+
+    </header>
+
+    <section class="container-nav-productos" class="pag1">
+
+        <div class="nav">
+
+            <div class="filtros">
+                <h3>Filtros</h3>
+                <ul>
+                    <h5>Por tipo</h5>
+                    <li id="alimentos">Alimentos</li>
+                    <li id="juguetes">Juguetes</li>
+                    <li id="varios">Varios</li>
+                    <li id="estetica">Estetica</li>
+                </ul>
+        
+                <button class="close-button" id="borrar-filtros">
+                        Borrar filtros 
+                        <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="container-prductos-footer">
+
+            <div class="productos">
+
+                <div class="producto pag1 F-juguetes">
+                    <img src="Img Productos/hueso comestible.jpeg" alt="Hueso Comestible">
+                    <h3>Hueso comestible</h3>
+                    <p>$400</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-juguetes">
+                    <img src="Img Productos/mancuerna.png" alt="Mancuerna de soga">
+                    <h3>Mancuerna de soga</h3>
+                    <p>$2500</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-alimentos">
+                    <img src="Img Productos/alimentoUrinary.png" alt="Alimetno gato">
+                    <h3>Alimento Agility Premium Urinary para gato adulto 10kg</h3>
+                    <p>$8500</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-alimentos">
+                    <img src="Img Productos/alimentoPerro.png" alt="Alimento perro">
+                    <h3>Alimento Agility Active Health para perro adulto 20 kg</h3>
+                    <p>$10000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-juguetes">
+                    <img src="Img Productos/pelotaLuzLed.png" alt="Pelota led">
+                    <h3>Pelota con luz LED</h3>
+                    <p>$1500</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-juguetes">
+                    <img src="Img Productos/pelotaDeGoma.png" alt="Pelota goma">
+                    <h3>Pelota de goma</h3>
+                    <p>$900</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-varios">
+                    <img src="Img Productos/bolsitasSanitarias.png" alt="Bolsa sanitaria">
+                    <h3>Bolsa sanitaria c/u</h3>
+                    <p>$250</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-alimentos">
+                    <img src="Img Productos/alimetnoHamster.png" alt="Alimento hamster">
+                    <h3>Alimento para Hamster Nelsoni Ranch Mix 750Gr</h3>
+                    <p>$1000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag1 F-estetica">
+                    <img src="Img Productos/shampooSupNegro.png" alt="Shampoo super negro">
+                    <h3>Shampoo Super Negro 500 Ml</h3>
+                    <p>$1200</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-juguetes">
+                    <img src="Img Productos/ratonAcontrolRemoto.png" alt="Raton para gato">
+                    <h3>Ratón de Control Remoto Inalámbrico Para Gatos</h3>
+                    <p>$4000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-juguetes">
+                    <img src="Img Productos/pelotaConRaton.png" alt="Pelota con raton">
+                    <h3>Pelota Con Raton de Felpa Dentro</h3>
+                    <p>$1300</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-varios">
+                    <img src="Img Productos/ruedaEjercicioHamster.jpg" alt="Rueda ejercicio hamster">
+                    <h3>Rueda de Ejercicio Para Hamster</h3>
+                    <p>$2000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-varios">
+                    <img src="Img Productos/platoDoble.png" alt="Plato doble">
+                    <h3>Plato Comedero Doble</h3>
+                    <p>$2500</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-varios">
+                    <img src="Img Productos/correaExtensible.png" alt="Correa extensible">
+                    <h3>Correa Retractil Halti Perro Mediano</h3>
+                    <p>$1300</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-varios">
+                    <img src="Img Productos/bebederoAutomatico.png" alt="Bebedero automatico">
+                    <h3>Bebedero Automatico</h3>
+                    <p>$5000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-varios">
+                    <img src="Img Productos/quitaPelusa.png" alt="Quita pelusa">
+                    <h3>Cepillo Quita Pelos y Pelusa</h3>
+                    <p>$1680</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-juguetes">
+                    <img src="Img Productos/huesoSlamon.png" alt="Hueso salmon">
+                    <h3>Hueso Masticable Salmon</h3>
+                    <p>$7000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag2 F-alimentos">
+                    <img src="Img Productos/alimentoSabrositoPerro.png" alt="Alimento perro">
+                    <h3>Alimento Sabrositos Perro Adulto Por 15Kg</h3>
+                    <p>$4990</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-alimentos">
+                    <img src="Img Productos/sabrositoGato.png" alt="Alimento gato">
+                    <h3>Alimento Sabrositos Gato Adulto x 10 Kg</h3>
+                    <p>$6000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-juguetes">
+                    <img src="Img Productos/pelotaFutbol.png" alt="Pelota futbol multicolor">
+                    <h3>Pelota Futbol Multicolor</h3>
+                    <p>$960</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-varios">
+                    <img src="Img Productos/chapitFutristaIdentificador.png" alt="Chapa identifcadora">
+                    <h3>Chapita Identificadora Hueso Futurista</h3>
+                    <p>$2350</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-varios">
+                    <img src="Img Productos/collarK9.PNG" alt="Collar K9">
+                    <h3>Collar K9 XL</h3>
+                    <p>$2000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-estetica">
+                    <img src="Img Productos/bosal.png" alt="Bosal">
+                    <h3>Bozal Baskerville Ultra Talle 4</h3>
+                    <p>$5500</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-estetica">
+                    <img src="Img Productos/shampooEspree.png" alt="Shampoo gato">
+                    <h3>Espree Shampoo Natural Pelo Largo para Gato 354 ml</h3>
+                    <p>$6100</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-juguetes">
+                    <img src="Img Productos/pelotaBasquet.png" alt="Pelota basquet">
+                    <h3>Pelotas De Basquet Gomaespuma 6cm</h3>
+                    <p>$1150</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-varios" >
+                    <img src="Img Productos/JaulaHamster.png" alt="Jaula hamster">
+                    <h3>Jaula para Hamster</h3>
+                    <p>$20000</p>
+                    <button>Comprar</button>
+                </div>
+
+                <div class="producto pag3 F-alimentos">
+                    <img src="Img Productos/goldFish.png" alt="Goldfish">
+                    <h3>Alimento para Peces, Reptiles y Tortugas</h3>
+                    <p>$1000</p>
+                    <button>Comprar</button>
+                </div>
+
+            </div>
+
+            <footer class="pie">
+                    <button id="anterior">< Anterior</button>
+                <h4 id="numero-pagina">1 de 3</h4>
+                    <button id="siguiente">Siguiente ></button>
+            </footer>
+
+        </div>
+
+    <section>
+        
+    <script src="main.js"></script>
+</body>
+</html>
