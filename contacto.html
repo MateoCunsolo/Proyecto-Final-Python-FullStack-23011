@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop Mis Patitas</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <header>
+        <h1 class="titulo_ppal">Pet Shop Mis Patitas</h1>
+    </header>
+    <nav id="contenedor"> 
+        <a href="index.html">Inicio</a>
+        <a href="carrito">Mi Carrito</a>
+        <a href="#Ofertas">Relax Music</a>           
+        <a href="#Perros">Perros</a>
+        <a href="#Gatos">Gatos</a>
+        <a href="#Conejos">Conejos</a>
+        <a href="#Musica">Ofertas</a>
+        <a href="">Boton de Arrepentimiento</a>
+     
+    </nav>
+
+    <main class="contenedor-main">
+        <div class="formulario">
+            <h2>Formulario de contacto</h2>
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputNombre" class="form-label">Nombre y Apellido</label>
+                      <input type="text" class="form-control" id="exampleInputNombre" aria-describedby="nombre">
+                      <div id="nombre" class="form-text">Nunca compartiremos su informacion con nadie más.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="exampleInputEmail">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputTelefono" class="form-label">Télefono</label>
+                      <input type="text" class="form-control" id="exampleInputTelefono">
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Le gustaría recibir promociones vía Whatsapp</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Consultas y/o Sugerencias</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+
+        </div>           
+        
+
+        <div class="frecuentes">    
+            <h2>Preguntas Frecuentes</h2> 
+
+            <button class="accordion">Cúanto tarda mi envio</button>
+            <div class="panel">
+            <p>Para averiguar en cuánto tiempo se entregará su compra, 
+                debe considerar que el tiempo de salida del depósito es normalmente de 3 dias, 
+                más el tiempo de envío.
+                <br>
+
+                Es decir, tiempo de salida del depósito + tiempo de envío = tiempo de entrega    
+                Ejemplo; un producto que tiene salida de depósito normalmente 
+                en 3 días hábiles y que se entrega en una provincia o localidad 
+                sin medidas sanitarias que imposibiliten la entrada de la empresa postal, 
+                espere recibirlo en 6 dias hábiles. Notas aclaratorias:
+                <br>
+                - Si su compra se realiza durante el fin de semana, debe adicionar 48hs para el despacho.</p>
+            </div>
+
+            <button class="accordion">Medios de pago</button>
+            <div class="panel">
+            <p>Depósito o transferencia en nuestra cuenta bancaria
+                Para el depósito o transferencia bancaria a nuestra cuenta le brindaremos e
+                l número de la misma o CBU respectivamente una vez realizada la compra.
+                <br>
+                Tarjeta de crédito
+                Pago seguro online por PayU para compras con tarjetas internacionales y 
+                MercadoPago para compras con tarjetas locales.
+                Aceptamos las siguientes tarjetas de crédito:
+                <br>
+                - Visa<br>
+                - Mastercard<br>
+                - American Express<br>
+                - Cabal<br>
+                - Tarjeta Shopping<br>
+                - Tarjeta Naranja<br>
+                
+                Pago Fácil | Rapipago | Cobro Express | Bapro Pagos por MercadoPago<br>
+                Usted podrá abonar el importe de su compra con un cupón de pago que 
+                le enviaremos por e-mail en cualquiera de las sucursales de Pago Fácil, 
+                Rapipago, Cobro Express y Bapro Pagos</p>
+            </div>
+
+            <button class="accordion">¿Es seguro usar tarjeta de crédito?</button>
+            <div class="panel">
+            <p>Para resguardar la seguridad de los datos en internet se han desarrollado un número de protocolos
+                y aplicaciones usando técnicas de encriptación.<br>
+                En Mis Patitas la seguridad está garantizada por el uso de los protocolos Secure HTTP y 
+                Secure Sockets Layer (SSL) que proveen de autenticación para servidores y navegadores. 
+                Como así también mantienen la confidencialidad e integridad de los datos por las comunicaciones 
+                entre su navegador y nuestro servidor.<br>    
+                Cuando un dato es enviado desde su navegador al servidor de Mis Patitas, 
+                el mismo es encriptado, y de esta forma se mantiene a personas no autorizadas 
+                lejos de poder interceptar o ver estos datos.<br>    
+                Los datos se encriptan usando algoritmo sha256RSA.<br>    
+                Mis patitas ha seleccionado el sistema de Pago Seguro de MercadoPago para compras nacionales 
+                para la validación de las tarjetas de crédito en línea. 
+                Opera con VISA (Verified by VISA homologado), Mastercard, American Express, Cabal, Tarjeta 
+                Shopping y Tarjeta Naranja, cumpliendo con los estándares internacionales y locales definidos por las tarjetas mencionadas.</p>
+            </div>
+            <button class="accordion">Devoluciones</button>
+            <div class="panel">
+            <p>A partir de la recepción del paquete, usted cuenta con 10 días corridos para poder realizar cambios o devoluciones.
+                Para solicitar los cambios o devoluciones, puede contactarse por e-mail a devoluciones@mispatitas.com o telefónicamente al (54) 11 2233 4455 informando:
+                <br>
+                - número de pedido <br>
+                - motivo del cambio o devolución <br>
+                - código (ID que figura en la factura) y título del producto y código de producto
+                <br>
+                Le informaremos por e-mail la manera de realizar el cambio o devolución.    
+                Se aceptarán los cambios y devoluciones siempre y cuando los pproductos no hayan sido usados; 
+                no tengan signos de deterioro; roturas; escritos o manchados; 
+                se mantengan en el mismo estado en que se recibieron conservando los envoltorios 
+                o cajas originales, plásticos, con sus etiquetas incluyendo todo tipo de accesorios, si los hubiere.</p>
+            </div>
+
+            <button class="accordion">Quiero trabajar en Mis Patitas</button>
+            <div class="panel">
+            <p>Claro, envia tu curriculum a nuestro equipo de RRHH por e-mail a rrhh@mispatitas.com <br>
+                - número de pedido <br>
+                - motivo del cambio o devolución <br>
+                - código (ID que figura en la factura) y título del producto y código de producto
+                <br>
+                Le informaremos por e-mail la manera de realizar el cambio o devolución.    
+                Se aceptarán los cambios y devoluciones siempre y cuando los pproductos no hayan sido usados; 
+                no tengan signos de deterioro; roturas; escritos o manchados; 
+                se mantengan en el mismo estado en que se recibieron conservando los envoltorios 
+                o cajas originales, plásticos, con sus etiquetas incluyendo todo tipo de accesorios, si los hubiere.</p>
+            </div>
+            <button class="accordion">¿Puedo hacer seguimiento del envío?</button>
+            <div class="panel">
+            <p>Claro, envia tu curriculum a nuestro equipo de RRHH por e-mail a rrhh@mispatitas.com <br>
+                - número de pedido <br>
+                - motivo del cambio o devolución <br>
+                - código (ID que figura en la factura) y título del producto y código de producto
+                <br>
+                Al ser despachada la compra, recibirá un email donde le informaremos por que correo se despachó su pedido, el numero de encomienda y el link para que pueda realizar el seguimiento..</p>
+            </div>
+
+
+
+
+            <script>
+            // Obtenemos todos los elementos con la clase "accordion"
+            var acc = document.getElementsByClassName("accordion");
+
+            // Iteramos sobre los elementos y añadimos un evento de clic a cada uno
+            for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                // Cambiamos la clase "active" para abrir o cerrar el panel
+                this.classList.toggle("active");
+
+                // Obtenemos el panel asociado al encabezado actual
+                var panel = this.nextElementSibling;
+
+                // Mostramos o ocultamos el panel
+                if (panel.style.display === "block") {
+                panel.style.display = "none";
+                } else {
+                panel.style.display = "block";
+                }
+            });
+            }
+            </script>
+
+                
+        </div>
+                
+    </main>    
+
+    
+    
+    <footer>
+        <div class="pie">   
+        <h4>2023. Todos los derechos reservados.</h4>
+        Yuskeyli Avila & Mateo Cunsolo
+        <br>
+        Pie de Pagina
+        <br>
+        <a href="#">Ir a arriba</a>
+        </div>
+        <div class="cupon">
+            <h2>Completá tus datos y recibí tu cupón de 15% OFF en tu primera compra!!!!</h2> <button type="button" class="btn btn-primary">Quiero mi cupón</button>
+            
+        </div>
+  
+        
+    </footer> 
+</body>
+</html>
