@@ -52,7 +52,7 @@ function mostrarElementosPorClase(clase) {
   }
 }
 
-// ocultar productos pag2 y pag3... asi quedan solo los de la pag1
+// ocultar productos pag2 y pag3... asi quedan solo los de la pag1const h3Element = document.getElementById("numero-pagina");
 ocultarElementosPorClase("pag2");
 ocultarElementosPorClase("pag3");
 anteriorInput.style.display = "none";
@@ -89,7 +89,6 @@ anteriorInput.addEventListener("click", function () {
   }
 });
 
-
 ///-------FILTROS--------------
 
 //ALIMENTOS
@@ -117,7 +116,6 @@ document.getElementById("varios").addEventListener("click", function () {
   ocultarElementosPorClase("F-estetica");
   mostrarElementosPorClase("F-varios");
   footer.style.display = "none";
-  
 });
 
 //ESTETICA
@@ -136,4 +134,104 @@ filtroBorrar.addEventListener("click", function () {
   buscarInput.dispatchEvent(new Event("input"));
 });
 
+
+
+const botonesCarrito = document.querySelectorAll(".carrito");
+var arregloProductos = [];
+const divTotal = document.createElement("div");
+
+botonesCarrito.forEach((boton) => {
+  boton.addEventListener("click", (event) => {
+    const contenedorProducto = boton.closest(".producto"); /// busca el contenedor del producto al que pertenece el botón que fue clickeado y lo almacena en la variable contenedorProducto. Esto es útil para acceder a otros elementos relacionados con ese producto, como su nombre, precio e imagen.
+    const nombreProducto = contenedorProducto.querySelector("h3").textContent;
+    var precioProducto = contenedorProducto.querySelector("p").textContent;
+    const imagenProducto = contenedorProducto.querySelector("img").src;
+    let contador = 1;
+
+    
+    const infoProducto = document.createElement("div");
+    infoProducto.classList.add("producto-carrito");
+    infoProducto.innerHTML = `
+    <img src="${imagenProducto}" alt="${nombreProducto}">
+    <h6>${nombreProducto}</h6>
+    <p>${"$" + precioProducto}</p>
+    <button class="boton-sumar">+</button>
+    <button class="boton-restar">-</button>
+    <h6>${contador}</h6>
+  	`;
+    arregloProductos.push(infoProducto);
+    const seccionDestino = document.querySelector("#seccion-carrito");
+    seccionDestino.appendChild(infoProducto);
+    
+
+    divTotal.style.display = "none";
+
+    const botonSumar = infoProducto.querySelector(".boton-sumar");
+    botonSumar.addEventListener("click", (event) => {
+
+      var precio = infoProducto.querySelector("p");
+      var contadorDiv = infoProducto.querySelector("h6:last-of-type");
+
+      contador = contador + 1;
+      let precioTotal = contador * parseFloat(precioProducto);
+
+      contadorDiv.textContent = contador;
+      precio.textContent = "$" + precioTotal;
+
+    });
+
+    
+    const botonRestar = infoProducto.querySelector(".boton-restar");
+    botonRestar.addEventListener("click", (event) => {
+
+      var precio = infoProducto.querySelector("p");
+      var contadorDiv = infoProducto.querySelector("h6:last-of-type");
+
+      contador = contador - 1;
+      let precioTotal = contador * parseFloat(precioProducto);
+
+      contadorDiv.textContent = contador;
+      precio.textContent = "$" + precioTotal;
+      
+      if(contador < 1)
+      {
+        infoProducto.style.display = "none";
+      }
+
+    });
+  });
+});
+
+
+
+const botonComprar = document.querySelector("#boton-comprar");
+botonComprar.addEventListener("click", (event) => {
+  let carritoTotal = 0;
+
+  for (let i = 0; i < arregloProductos.length; i++) {
+    let elementoP = arregloProductos[i].querySelector("p");
+    let contenidoP = elementoP.textContent;
+    carritoTotal += parseFloat(contenidoP.replace("$", ""));
+  }
+  
+  divTotal.style.display = "Block";
+  divTotal.classList.add("producto-carrito");
+  divTotal.innerHTML = `
+  <p>${"Precio total del carrito: $" + carritoTotal}</p>
+  <button>Confirmar comprar</button>
+  `;
+  const seccionDestino = document.querySelector("#seccion-carrito");
+  seccionDestino.appendChild(divTotal);
+});
+
+const botonEliminar = document.querySelector("#boton-eliminar");
+botonEliminar.addEventListener("click", (event) => {
+  const seccion = document.querySelector("#seccion-carrito");
+  let i = seccion.children.length;
+  while ((seccion.children[i-1]) && (i>1)) { //ELIMINO LOS HIJOS (PRODUCTOS) DE LA SEECCION CARRITO
+    seccion.removeChild(seccion.lastChild);
+    i--;
+  }
+  arregloProductos.splice(0, arregloProductos.length); //BORRO EL ARREGLO, PARA QUE SE RENICIE EL CARRITO Y EL VALOR TOTAL
+});
 

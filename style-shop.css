@@ -119,22 +119,23 @@ h1 {
     display: grid;
     grid-area: nav;
     grid-template-columns: 1fr; /* Una sola columna */
-    grid-template-rows: 1fr 2fr; /* Dos filas */
+    grid-template-rows: 0.5fr 2fr; /* Dos filas */
     grid-template-areas:
       "filtros"   /* cambie por perfil por filtros, funcionalidad de perfil lo dejamos  para lo ultimo si llegamos */
-      "filtros";
+      "seccion-carrito";
 }
 .filtros
 {
+    height: 240px;
     padding: 10px;
     border-radius: 10px;
     grid-area: filtros;
 }
 
 .filtros .close-button {
+    border: solid black;
     margin: 10px;
     background-color: transparent;
-    border: solid black;
     border-radius: 10px;
     cursor: pointer;
     padding: 5px;
@@ -156,25 +157,6 @@ h1 {
     text-decoration: underline;
 }
 
-.perfil
-{
-    padding: 10px;
-    grid-area: perfil;
-
-}
-.perfil h3,
-.filtros h3
-{
-    border: solid #69c7ca;;
-    background-color: #69c7ca;;
-    border-radius: 20px;
-    margin:0;
-}
-.perfil img
-{
-    height: 100px;
-    width: 100px;
-}
 
 /* PRODUCTO */
 .producto {
@@ -187,6 +169,13 @@ h1 {
     margin: 5px;
     border: 1px solid #ccc;
 }
+
+/* boton agregar al carrito de los productos */
+.carrito 
+{
+    padding: 5px;
+}
+
 
 .producto img {
     width: 150px;
@@ -330,3 +319,73 @@ h1 {
 
 }
 
+
+#seccion-carrito
+{
+    padding: 2px;
+}
+
+#seccion-carrito img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+#seccion-carrito button
+{
+
+}
+
+.producto-carrito {
+    border: solid black;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    padding: 5px;
+    width: 240px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    
+}
+.producto-carrito > *:not(img) {
+    margin: 2px;
+  }
+ 
+.boton-sumar, .boton-restar
+{
+    height: 30px;
+    width: 30px;
+    margin-top: 0 auto;
+}
+
+#boton-comprar
+{
+    padding: 10px;
+}
+
+#boton-eliminar
+{
+    padding: 10px;
+}
+
+.cabecera-carrito {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+  
+.cabecera-carrito >*{
+    margin: 5px;
+}
+
+.cabecera-carrito img{
+    border: solid black;
+}
+
+.compra-total
+{
+    padding: 4px;
+}
