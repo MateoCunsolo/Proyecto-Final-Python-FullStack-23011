@@ -337,6 +337,23 @@ h1 {
 
 }
 
+#confirmar {
+    border: solid black;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    padding: 5px;
+    width: 240px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px; 
+}
+
+#confirmar > *:not(img) {
+    margin: 2px;
+}
+
 .producto-carrito {
     border: solid black;
     margin-left: 5px;
@@ -348,7 +365,6 @@ h1 {
     display: flex;
     align-items: center;
     margin-bottom: 0px;
-    
 }
 .producto-carrito > *:not(img) {
     margin: 2px;
@@ -388,4 +404,10 @@ h1 {
 .compra-total
 {
     padding: 4px;
+}
+
+
+#btn-confirmar
+{
+    background-color: rgb(135, 212, 141);
 }

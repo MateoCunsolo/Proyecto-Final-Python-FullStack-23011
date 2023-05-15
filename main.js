@@ -142,13 +142,13 @@ const divTotal = document.createElement("div");
 
 botonesCarrito.forEach((boton) => {
   boton.addEventListener("click", (event) => {
-    const contenedorProducto = boton.closest(".producto"); /// busca el contenedor del producto al que pertenece el botón que fue clickeado y lo almacena en la variable contenedorProducto. Esto es útil para acceder a otros elementos relacionados con ese producto, como su nombre, precio e imagen.
+    const contenedorProducto = boton.closest(".producto");
     const nombreProducto = contenedorProducto.querySelector("h3").textContent;
     var precioProducto = contenedorProducto.querySelector("p").textContent;
     const imagenProducto = contenedorProducto.querySelector("img").src;
     let contador = 1;
 
-    
+
     const infoProducto = document.createElement("div");
     infoProducto.classList.add("producto-carrito");
     infoProducto.innerHTML = `
@@ -162,7 +162,7 @@ botonesCarrito.forEach((boton) => {
     arregloProductos.push(infoProducto);
     const seccionDestino = document.querySelector("#seccion-carrito");
     seccionDestino.appendChild(infoProducto);
-    
+
 
     divTotal.style.display = "none";
 
@@ -177,10 +177,19 @@ botonesCarrito.forEach((boton) => {
 
       contadorDiv.textContent = contador;
       precio.textContent = "$" + precioTotal;
+      let carritoTotal = 0;
+      for (let i = 0; i < arregloProductos.length; i++) {
+        let elementoP = arregloProductos[i].querySelector("p");
+        let contenidoP = elementoP.textContent;
+        carritoTotal += parseFloat(contenidoP.replace("$", ""));
+      }
+
+      const confirmar = document.querySelector("#confirmar");
+      confirmar.querySelector("p").textContent = "Precio total del carrito: $" + carritoTotal;
 
     });
 
-    
+
     const botonRestar = infoProducto.querySelector(".boton-restar");
     botonRestar.addEventListener("click", (event) => {
 
@@ -192,46 +201,68 @@ botonesCarrito.forEach((boton) => {
 
       contadorDiv.textContent = contador;
       precio.textContent = "$" + precioTotal;
+
+
+      if (contador < 1) {
+        let index = arregloProductos.indexOf(infoProducto);
+        arregloProductos.splice(index, 1);
+        infoProducto.remove();
+      }
       
-      if(contador < 1)
-      {
-        infoProducto.style.display = "none";
+
+      let carritoTotal = 0;
+      for (let i = 0; i < arregloProductos.length; i++) {
+        let elementoP = arregloProductos[i].querySelector("p");
+        let contenidoP = elementoP.textContent;
+        carritoTotal = carritoTotal + parseFloat(contenidoP.replace("$", ""));
+        alert(i);
       }
 
+      const confirmar = document.querySelector("#confirmar");
+      confirmar.querySelector("p").textContent = "Precio total del carrito: $" + carritoTotal;
+
+
     });
+
   });
 });
 
 
-
 const botonComprar = document.querySelector("#boton-comprar");
 botonComprar.addEventListener("click", (event) => {
-  let carritoTotal = 0;
-
-  for (let i = 0; i < arregloProductos.length; i++) {
+  
+    let carritoTotal = 0;
+    for (let i = 0; i < arregloProductos.length; i++) {
     let elementoP = arregloProductos[i].querySelector("p");
     let contenidoP = elementoP.textContent;
     carritoTotal += parseFloat(contenidoP.replace("$", ""));
-  }
-  
-  divTotal.style.display = "Block";
-  divTotal.classList.add("producto-carrito");
-  divTotal.innerHTML = `
-  <p>${"Precio total del carrito: $" + carritoTotal}</p>
-  <button>Confirmar comprar</button>
-  `;
-  const seccionDestino = document.querySelector("#seccion-carrito");
-  seccionDestino.appendChild(divTotal);
+    }
+
+    divTotal.style.display = "Block";
+    divTotal.id = "confirmar";
+    divTotal.innerHTML = `
+      <p>${"Precio total del carrito: $" + carritoTotal}</p>
+      <button id="btn-confirmar"> Confirmar comprar </button>
+    `;
+
+    const seccionDestino = document.querySelector("#seccion-carrito");
+    seccionDestino.appendChild(divTotal);
+
+    const botonConfirmar = document.querySelector("#btn-confirmar");
+    botonConfirmar.addEventListener("click", () => {
+    window.location.href = "confirmar-compra.html";
+    ///crear aca el sildebar y main de confirmar.compra.html
+    });
+
 });
 
 const botonEliminar = document.querySelector("#boton-eliminar");
 botonEliminar.addEventListener("click", (event) => {
   const seccion = document.querySelector("#seccion-carrito");
   let i = seccion.children.length;
-  while ((seccion.children[i-1]) && (i>1)) { //ELIMINO LOS HIJOS (PRODUCTOS) DE LA SEECCION CARRITO
+  while ((seccion.children[i - 1]) && (i > 1)) { //ELIMINO LOS HIJOS (PRODUCTOS) DE LA SEECCION CARRITO
     seccion.removeChild(seccion.lastChild);
     i--;
   }
   arregloProductos.splice(0, arregloProductos.length); //BORRO EL ARREGLO, PARA QUE SE RENICIE EL CARRITO Y EL VALOR TOTAL
 });
-

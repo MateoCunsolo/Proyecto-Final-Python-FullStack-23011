@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.contenedor{
+    width: 100%;
+    display: grid;
+    margin: 0 auto;
+    margin-top: 0 auto;
+    gap: 20px;
+    height: 100vh;
+    /*3 colunas: contenido (con 2 widgets) + sidebar*/
+    grid-template-columns: 1fr 1fr 1fr;
+
+    /*4 filas: header, contenido, widgets, footer*/
+    grid-template-rows: 1fr 6fr 2fr;
+
+    grid-template-areas: "encabezado encabezado encabezado"
+                         "contenido contenido carrito"
+                         "pie pie pie";
+}
+
+.encabezado{
+    background: darkblue;
+    color: #fff;
+    grid-area: encabezado; 
+    background-image: url(fondo-header.png);
+}
+
+.carrito {
+    background: rgb(57, 57, 124);
+    color: #fff;
+    grid-area: carrito; 
+}
+
+.contenido{
+    background: #af0b0b;
+    color: #000;
+    grid-area: contenido; 
+}
+
+.contenedor .pie{
+    background: darkblue;
+    color: #fff;
+    grid-area: pie; 
+}
