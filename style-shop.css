@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    
 }
 
 
@@ -112,6 +113,11 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(10, auto);
 }
+
+.productos p:before {
+    content: "$";
+  }
+  
 
 /* SILDEBAR NAV, INFO PERFIL + FILTROS */
 .nav{
@@ -338,7 +344,6 @@ h1 {
 }
 
 #confirmar {
-    border: solid black;
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 20px;
@@ -355,7 +360,7 @@ h1 {
 }
 
 .producto-carrito {
-    border: solid black;
+    
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 20px;
@@ -366,6 +371,7 @@ h1 {
     align-items: center;
     margin-bottom: 0px;
 }
+
 .producto-carrito > *:not(img) {
     margin: 2px;
   }

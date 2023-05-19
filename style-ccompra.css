@@ -5,44 +5,197 @@ body{
 }
 
 .contenedor{
-    width: 100%;
     display: grid;
-    margin: 0 auto;
-    margin-top: 0 auto;
     gap: 20px;
-    height: 100vh;
+    background-color: #eee;
     /*3 colunas: contenido (con 2 widgets) + sidebar*/
     grid-template-columns: 1fr 1fr 1fr;
 
     /*4 filas: header, contenido, widgets, footer*/
-    grid-template-rows: 1fr 6fr 2fr;
+    grid-template-rows: 2fr 8fr 1fr 1fr;
 
     grid-template-areas: "encabezado encabezado encabezado"
-                         "contenido contenido carrito"
+                         "contenido contenido carritoFin"
+                         "continuar continuar continuar"
                          "pie pie pie";
+}
+.continuar
+{
+    grid-area: continuar;
+    display: flex;
+    justify-content: end;
+    margin-right: 60px;
+    align-items: center;
+}
+
+.continuar button
+{
+    background-color: #002fff;
+    color: white;
+    width: 130px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 100px;
 }
 
 .encabezado{
     background: darkblue;
     color: #fff;
-    grid-area: encabezado; 
+    grid-area: encabezado;
     background-image: url(fondo-header.png);
 }
 
-.carrito {
-    background: rgb(57, 57, 124);
-    color: #fff;
-    grid-area: carrito; 
+
+#carritoFin {
+    margin: 30px;
+    background-color: #ffffff;
+    color: #000000;
+    grid-area: carritoFin; 
 }
 
-.contenido{
-    background: #af0b0b;
+.titulo
+{
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.producto-carrito {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.producto-info {
+    margin-left: 10px;
+}
+
+.producto-info p {
+    margin: 0;
+}
+
+.producto-carrito img
+{
+    height: 60px;
+    width: 60px;
+}
+
+.precioTotal
+{
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+
+
+.contenido {
+    margin: 30px;
     color: #000;
     grid-area: contenido; 
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "checkuno"
+                         "checkdos";
+    padding: 10px;
+    grid-gap: 50px;
+}
+
+.contenido button
+{   
+    background-color: rgb(50, 138, 84);
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    font-size: 15px;
+    width: 250px;
+    height: 40px;
+}
+
+.contenido button:hover
+{
+    background-color: rgb(0, 81, 255);
+    color: rgb(255, 255, 255);
+}
+
+#checkuno {
+    border-radius: 5px;
+    background-color: #ffffff;;
+    grid-area: checkuno;
+    display: grid;
+    grid-template-columns: 0.5fr 4fr 1fr;
+    grid-template-areas: "check texto precio";
+    box-shadow: 0 0 10px rgb(104, 104, 104);
+}
+
+
+#checkdos {
+    border-radius: 5px;
+    background-color: #ffffff;
+    grid-area: checkdos;
+    display: grid;
+    grid-template-columns: 0.5fr 4fr 1fr;
+    grid-template-areas: "check texto precio";
+    box-shadow: 0 0 10px rgb(104, 104, 104);
+}
+
+.check input[type="radio"] {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.check {
+    
+    grid-area: check;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto {
+    
+    grid-area: texto;
+    display: flex;
+    
+    align-items: center;
+}
+
+.precio {
+    
+    grid-area: precio;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.precio h3
+{
+    color: rgb(29, 180, 29);
+    margin-left: 20px;
+    
 }
 
 .contenedor .pie{
-    background: darkblue;
-    color: #fff;
+    background: rgba(255, 255, 255, 0);
+    color: #0026ff;
     grid-area: pie; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.direccionCodeCity {
+    border-radius: 5px;
+    height: 30px;
+    width: 800px;
+    border: solid rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(104, 104, 104);
+}
+
+.codigoPostalContainer a
+{
+    margin-left: 40px;
 }

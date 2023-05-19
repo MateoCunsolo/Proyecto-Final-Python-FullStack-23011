@@ -6,6 +6,8 @@ const anteriorInput = document.getElementById("anterior");
 const h3Element = document.getElementById("numero-pagina");
 const cruz = document.getElementById("borrar-busquedad");
 const filtroBorrar = document.getElementById("borrar-filtros");
+var arregloProductos = [];
+const divTotal = document.createElement("div");
 
 buscarInput.addEventListener("input", function () {
   const searchTerm = buscarInput.value.toLowerCase();
@@ -136,10 +138,13 @@ filtroBorrar.addEventListener("click", function () {
 
 
 
-const botonesCarrito = document.querySelectorAll(".carrito");
-var arregloProductos = [];
-const divTotal = document.createElement("div");
 
+
+
+/*EL BUCLE FOR EACH RECORRE TODOS LOS PRODUCTOS COLOCADOS EN LA PÁGINA, Y CUANDO EN ALGUNO DE ELLOS SE APRETA EL BOTÓN "AGREGAR AL CARRITO" 
+DE UN PRODUCTO, SE CREA UN NUEVO ELEMENTO EN LA SECCIÓN DEL CARRITO QUE CONTIENE LA INFORMACIÓN DE ESE PRODUCTO. DE ESTA MANERA, SE VA 
+CONSTRUYENDO DINÁMICAMENTE EL CONTENIDO DEL CARRITO A MEDIDA QUE SE VAN AGREGANDO PRODUCTOS.*/
+const botonesCarrito = document.querySelectorAll(".carrito");
 botonesCarrito.forEach((boton) => {
   boton.addEventListener("click", (event) => {
     const contenedorProducto = boton.closest(".producto");
@@ -166,6 +171,7 @@ botonesCarrito.forEach((boton) => {
 
     divTotal.style.display = "none";
 
+    // SUMA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
     const botonSumar = infoProducto.querySelector(".boton-sumar");
     botonSumar.addEventListener("click", (event) => {
 
@@ -189,7 +195,7 @@ botonesCarrito.forEach((boton) => {
 
     });
 
-
+    // RESTA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
     const botonRestar = infoProducto.querySelector(".boton-restar");
     botonRestar.addEventListener("click", (event) => {
 
@@ -208,19 +214,17 @@ botonesCarrito.forEach((boton) => {
         arregloProductos.splice(index, 1);
         infoProducto.remove();
       }
-      
 
       let carritoTotal = 0;
       for (let i = 0; i < arregloProductos.length; i++) {
         let elementoP = arregloProductos[i].querySelector("p");
         let contenidoP = elementoP.textContent;
         carritoTotal = carritoTotal + parseFloat(contenidoP.replace("$", ""));
-        alert(i);
       }
 
+    
       const confirmar = document.querySelector("#confirmar");
       confirmar.querySelector("p").textContent = "Precio total del carrito: $" + carritoTotal;
-
 
     });
 
@@ -228,6 +232,7 @@ botonesCarrito.forEach((boton) => {
 });
 
 
+///click en comprar y nos muestra el valor final y nos sale un boton nuevo que dice "confirmar compra" para pasar a la pagina de confirmacion
 const botonComprar = document.querySelector("#boton-comprar");
 botonComprar.addEventListener("click", (event) => {
   
@@ -248,11 +253,35 @@ botonComprar.addEventListener("click", (event) => {
     const seccionDestino = document.querySelector("#seccion-carrito");
     seccionDestino.appendChild(divTotal);
 
-    const botonConfirmar = document.querySelector("#btn-confirmar");
-    botonConfirmar.addEventListener("click", () => {
-    window.location.href = "confirmar-compra.html";
-    ///crear aca el sildebar y main de confirmar.compra.html
-    });
+    
+
+    //cuando le damos a confirmar compra, se guarda el carrito en el local storage, 
+    //para despues poder acceder desde el otro html a los prodctos que cargo el cliente en el carrito final
+  const botonConfirmar = document.querySelector("#btn-confirmar");
+  botonConfirmar.addEventListener("click", () => {
+  let productosFinales = []; // Declarar el arreglo de productosFinales
+  for (let i = 0; i < arregloProductos.length; i++) {
+    // Acceder al contenido de cada etiqueta (descripción del producto y su precio)
+    let nombre = arregloProductos[i].querySelector("h6");
+    let precio = arregloProductos[i].querySelector("p");
+    let img = arregloProductos[i].querySelector("img");
+
+    let objeto = {
+      articulo: nombre.textContent,
+      precio: precio.textContent,
+      imagen: img.src,
+    };
+    // Agregar objeto al arreglo productosFinales
+    productosFinales[i] = objeto;
+  }
+  // Convertir el arreglo a un JSON
+  let objetoJSON = JSON.stringify(productosFinales);
+  // Almacenar el arreglo completo en el localStorage
+  localStorage.setItem("productos", objetoJSON);
+  // Redireccionar hacia la página "confirmar-compra.html"
+  window.location.href = "confirmar-compra.html";
+});
+  
 
 });
 
