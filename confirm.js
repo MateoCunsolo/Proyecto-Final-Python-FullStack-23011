@@ -45,7 +45,7 @@ if (carrito) {
   let envio = document.createElement("div");
   let imgElement = document.createElement("img");
   envio.classList.add("producto-carrito");
-  imgElement.src = "petshop.png";
+  imgElement.src = "camioncito.png";
   let infoElement = document.createElement("div");
   infoElement.classList.add("producto-info");
   infoElement.id = "costo-envio";
