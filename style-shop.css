@@ -10,17 +10,13 @@ body {
 /* Estilos del header */
 header {
     background-color: #69c7ca;
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
-    border-radius: 100px;
     color: #fff;
     padding: 4px;
     text-align: center;
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr 1fr; 
+    grid-template-columns: 1fr 4fr 1fr; 
     grid-template-areas: 
-      "menu titulo redes salir";
+      "salir titulo redes";
 }
 
 header img
@@ -55,18 +51,29 @@ header button:hover
 }
 .redes
 {   
-    margin-top:5px;
-    margin-left: 100px;
     grid-area: redes;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 2px;
+}
+.redes img
+{
+    margin-left: 10px;
 }
 .salir
 {
-    margin-top:10px;
     grid-area: salir;
+    display: flex;
+    align-items: center;
+    justify-content: initial;
 }
 .titulo
 {
     grid-area: titulo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
@@ -121,6 +128,7 @@ h1 {
 
 /* SILDEBAR NAV, INFO PERFIL + FILTROS */
 .nav{
+    background-color: #00000018;
     padding: 5px;
     display: grid;
     grid-area: nav;
@@ -417,3 +425,10 @@ h1 {
 {
     background-color: rgb(135, 212, 141);
 }
+
+#arrow
+{  
+    font-weight: bold;
+    font-size: 16px;
+}
+  

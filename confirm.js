@@ -1,4 +1,3 @@
-
 //---------------------------------------------------------------------------CARRITO MUESTRA DE PRODUCTOS Y COSTO DE ENVIO-------------------------------------------------------
 // nos traemos el carrito desde localStorage lo pasamos de json a jscript y
 // mostramos el carrito en la pagina, en la seccion carritoFin
@@ -72,11 +71,9 @@ function sumarArreglo(carrito) {
   return total;
 }
 
-
-
 // -----------------------------------------------------------------------------------CHECKsBOX-------------------------------------------------------------------------------------
 
-// Esta procion de codigo no permite que ambos checkbox (1y2) esten marcados y que sucede si se ponene en true cada uno en particular 
+// Esta procion de codigo no permite que ambos checkbox (1y2) esten marcados y que sucede si se ponene en true cada uno en particular
 const checkbox1 = document.querySelector("#checkbox1");
 const checkbox2 = document.querySelector("#checkbox2");
 const contenido = document.querySelector(".contenido");
@@ -91,9 +88,6 @@ ciudad.type = "text";
 ciudad.placeholder = "Ingrese su ciudad...";
 // se agrega un hijo a -> contenido: que tiene los check box 1 y 2 respectivamente, ahora va a tener un hijo mas que es el input de ingresar ciudad.
 contenido.appendChild(ciudad);
-
-
-
 // que sucede a marcar la casilla "checkbox1 -> Llegan entre 2 a 5 dias habiles a tu domicilio"
 checkbox1.addEventListener("change", function () {
   if (this.checked) {
@@ -121,7 +115,7 @@ checkbox1.addEventListener("change", function () {
     let calcularCodigoPostalLink = document.createElement("a");
     calcularCodigoPostalLink.href =
       "https://www.correoargentino.com.ar/formularios/cpa";
-    calcularCodigoPostalLink.textContent = "Calcular código postal";
+    calcularCodigoPostalLink.textContent = "Saber mi código postal";
     calcularCodigoPostalLink.target = "_blank";
     //agrega al conteiner del codigo postal hijos nuevos que son el input donde se espera el codigo postal del cliente y el element a, que te lleva a correo argentino
     codigoPostalContainer.appendChild(codigoPostalInput);
@@ -130,24 +124,41 @@ checkbox1.addEventListener("change", function () {
     //Se crea boton para poder calcular coste de envio, con los atributos (cidudad - direccio - codigo postal)
     let calcularCostoEnvio = document.createElement("button");
     calcularCostoEnvio.textContent = "Calcular costo de Envío";
-    /*si al apretar el boton de "calcular costo de envio" y si el input de codigo postal tiene contenido, se modifica el 
-    costo de envio a $1500 en la seccion del carrito y en la checkbox1 se cambia "$ Esperando codigo postal" a -> $1500" */
+
+    /*si al apretar el boton de "calcular costo de envio" y si el input de codigo postal,ciudad y direccion tienen contenido, se modifica el 
+    costo de envio a $1500 en la seccion del carrito y en la checkbox1 se cambia "$ Esperando codigo postal" a -> $1500" Y ademas se muestran los datos del cliente
+    en la seccion carritoFin */
     calcularCostoEnvio.addEventListener("click", function () {
-      const valorCPIngresado = codigoPostalInput.value;
-      if (valorCPIngresado != "") {
+      calcularCostoEnvio.disabled = true;
+
+      let valorCPIngresado = codigoPostalInput.value;
+      let ciudadIngresada = ciudad.value;
+      let direccionIngresada = direccionInput.value;
+
+      if (valorCPIngresado != "" && ciudadIngresada != "" && direccionIngresada != ""){
+        let datosCliente = document.createElement("div");
+        datosCliente.style.marginLeft = "20px";
+        datosCliente.innerHTML = `
+            <p>${"------------[ DATOS DEL CLIENTE ]------------"}</p>
+            <p>${"CIUDAD: " + ciudad.value}</p>
+            <p>${"DIRECCION: " + direccionInput.value}</p>
+            <p>${"CODIGO POSTAL: " + codigoPostalInput.value}</p>
+          `;
+        carritoFin.appendChild(datosCliente);
+
         calcularCostoEnvio.style.backgroundColor = "red";
+        calcularCostoEnvio.style.color = "white";
+        setTimeout(function () { calcularCostoEnvio.style.backgroundColor = "rgb(190, 190, 190)"; }, 2000);
         calcularCostoEnvio.textContent = "Ya calculado"; //cambia el texto del boton de "Calcular costo de Envío" -> "Ya calculado"
 
         let envio = document.querySelector("#costo-envio");
-        envio.innerHTML = 
-        `
+        envio.innerHTML = `
           <p>${"Costo de envio"}</p>
           <p>${"$1500"}</p>
        `;
 
         let precio = document.querySelectorAll(".precio");
-        precio[0].innerHTML = 
-        `
+        precio[0].innerHTML = `
           <p>${"$ 1500"}</p>
         `;
 
@@ -155,8 +166,7 @@ checkbox1.addEventListener("change", function () {
         let precioTotal = document.querySelector(".precioTotal");
         let precioXEnvio = 1500;
         let precioFinalCarrito = precioXEnvio + sumarArreglo(carrito);
-        precioTotal.innerHTML = 
-        `
+        precioTotal.innerHTML = `
           <h4>${"Pagás: $" + precioFinalCarrito}</h4>
         `;
       }
@@ -166,12 +176,11 @@ checkbox1.addEventListener("change", function () {
     contenido.appendChild(direccionInput);
     contenido.appendChild(codigoPostalContainer);
     contenido.appendChild(calcularCostoEnvio);
+    
   } else {
     checkbox2.checked = true;
   }
 });
-
-
 
 // que sucede a marcar la casilla "checkbox2 -> Retiro en puntos cercanos o sucursal"
 checkbox2.addEventListener("change", function () {
@@ -196,6 +205,7 @@ checkbox2.addEventListener("change", function () {
     ultimoHijo = contenido.lastChild;
     contenido.removeChild(ultimoHijo);
 
+
     /*si se marca el primer checkbox y se coloca el codigo postal pero despues se arrepiente y 
     se marca el segundo checkbox, el precio total iba a quedar con los 1500 sumados de la opcion 
     "envio a domicilio". Por eso se necesita volver a sumar el valor de los productos 
@@ -204,14 +214,17 @@ checkbox2.addEventListener("change", function () {
     precioTotal.innerHTML = `
     <h4>${"Pagás: $" + sumarArreglo(carrito)}</h4>
     `;
-    
+
     //Se actualia el precio del checkbox1, si fue marcado antes iba a estar en 1500. Al marcar el checkbox 2, pasa de 1500 a -> "$ Esperando codigo postal..."
     let precio = document.querySelectorAll(".precio");
     precio[0].innerHTML = `
       <p>${"$ Esperando codigo postal..."}</p>
        `;
-  } else 
-  {
+  } else {
     checkbox1.checked = true;
   }
 });
+
+
+
+

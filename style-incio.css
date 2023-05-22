@@ -278,7 +278,7 @@ header
   {
     grid-area: spotify;
     display: grid;
-    grid-template-columns: 3fr 6fr;
+    grid-template-columns: 3fr 3fr;
     grid-template-areas:
                         "spotifyText spotifyIframe";
     padding: 30px;
@@ -301,11 +301,13 @@ header
 
   .spotifyText
   {
+
     padding: 10px;
     grid-area: spotifyText;
   }
 
   .spotifyIframe {
+    
 
     grid-area: spotifyIframe;
     display: flex;
@@ -315,7 +317,6 @@ header
   
   .spotifyIframe iframe
   {
-    margin-top: 100px;
     box-shadow: 30px 30px 30px 30px rgba(12, 255, 12, 0.15);
   }
 
