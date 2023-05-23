@@ -12,7 +12,7 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
 
     /*4 filas: header, contenido, widgets, footer*/
-    grid-template-rows: 2fr 8fr 0.5fr 0.5fr;
+    grid-template-rows: 0.5fr 8fr 0.5fr 0.5fr;
 
     grid-template-areas: "encabezado encabezado encabezado"
                          "contenido contenido carritoFin"
@@ -39,7 +39,7 @@ body{
 .encabezado{
     grid-area: encabezado;
     background-image: url(fondo-header.png);
-    height: 150px;
+    height: 100px;
 }
 
 
