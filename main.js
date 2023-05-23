@@ -142,6 +142,11 @@ CONSTRUYENDO DINÁMICAMENTE EL CONTENIDO DEL CARRITO A MEDIDA QUE SE VAN AGREGAN
 const botonesCarrito = document.querySelectorAll(".carrito");
 botonesCarrito.forEach((boton) => {
   boton.addEventListener("click", (event) => {
+
+    const contadorCarrito = document.querySelector("#contadorCarrito");
+    contadorCarrito.textContent = contarHijosSeccionCarrito();
+    contadorCarrito.style.color = "RED";
+  
     const contenedorProducto = boton.closest(".producto");
     const nombreProducto = contenedorProducto.querySelector("h3").textContent;
     var precioProducto = contenedorProducto.querySelector("p").textContent;
@@ -267,8 +272,7 @@ botonComprar.addEventListener("click", (event) => {
       // Redireccionar hacia la página "confirmar-compra.html"
       window.location.href = "confirmar-compra.html";
     }
-    else
-    {
+    else {
       alert("Carrito vacio, porfavor ingresa productos");
     }
   });
@@ -283,5 +287,40 @@ botonEliminar.addEventListener("click", (event) => {
     seccion.removeChild(seccion.lastChild);
     i--;
   }
+
+    contadorCarrito.textContent = 0;
+    contadorCarrito.style.color = "white";
   arregloProductos.splice(0, arregloProductos.length); //BORRO EL ARREGLO, PARA QUE SE RENICIE EL CARRITO Y EL VALOR TOTAL
 });
+
+
+const carritoEnCelu = document.querySelector("#carritoEnCelu");
+let clickeado = false;
+carritoEnCelu.addEventListener("click", function () {
+  clickeado = !clickeado; // Cambiar el valor de clickeado a su opuesto
+  const seccionCarritoCelu = document.querySelector(".nav");
+  carritoEnCelu.style.marginLeft = "15px";
+  if (clickeado) {
+    carritoEnCelu.style.border="solid red"
+    carritoEnCelu.style.borderRadius = "3px";
+    const scrollTopPos = window.scrollY + 40;
+    seccionCarritoCelu.style.marginTop = `${scrollTopPos}px`;
+    seccionCarritoCelu.style.display = "block";
+    seccionCarritoCelu.style.position = "absolute";
+    seccionCarritoCelu.style.background = "white";
+    seccionCarritoCelu.style.border = "solid black";
+  } else {
+    seccionCarritoCelu.style.display = "none";
+    carritoEnCelu.style.border="solid  #69c7ca";
+    carritoEnCelu.style.borderRadius = "3px";
+  }
+});
+
+function contarHijosSeccionCarrito() {
+  const seccionDestino = document.querySelector("#seccion-carrito"); 
+  var cantidadHijos = seccionDestino.childElementCount;
+  return cantidadHijos;
+}
+
+
+

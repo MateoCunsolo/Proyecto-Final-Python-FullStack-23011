@@ -234,7 +234,7 @@ if (checkbox2.checked == true) {
       datosCliente.id = "datosCliente00";
       datosCliente.style.marginLeft = "20px";
       datosCliente.innerHTML = `
-            <h3>${"------------[ RETIRO POR SUCURSAL PRINCIPAL ]------------"}</h3>
+            <h3>${"------[ RETIRO POR SUCURSAL PRINCIPAL ]------"}</h3>
             <p>${"QUIEN RETIRA: " + quienRetiraIngresa}</p>
           `;
       carritoFin.appendChild(datosCliente);
@@ -345,7 +345,9 @@ botonMercadoPago.addEventListener("click", function () {
   const informacion = datosCliente.innerHTML;
   alert(informacion);
 
-  // LA IDEA ACA ES MANDAR AL MAIL DE LA EMPRESA, LA ORDEN DE COMPRA Y UTLIZAR LA API DE MERCADOPAGO PARA PODER REALIZAR EL PAGO
+  /* LA IDEA ACA ES MANDAR AL MAIL DE LA EMPRESA, LA ORDEN DE COMPRA (CON DATOS DEL CLIENTE YA SEA POR ENVIO O RETIRO EN SUCURSAL) 
+  Y UTLIZAR LA API DE MERCADOPAGO PARA PODER REALIZAR EL PAGO*/
+  
 });
 
 

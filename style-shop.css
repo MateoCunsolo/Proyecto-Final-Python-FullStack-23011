@@ -1,374 +1,254 @@
    /* Estilos generales */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    
-}
+   body {
+       margin: 0;
+       padding: 0;
+       font-family: Arial, sans-serif;
+
+   }
 
 
-/* Estilos del header */
-header {
-    background-color: #69c7ca;
-    color: #fff;
-    padding: 4px;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 4fr 1fr; 
-    grid-template-areas: 
-      "salir titulo redes";
-}
+   /* Estilos del header */
+   header {
+       background-color: #69c7ca;
+       color: #fff;
+       padding: 4px;
+       text-align: center;
+       display: grid;
+       grid-template-columns: 1fr 4fr 1fr;
+       grid-template-areas:
+           "salir titulo redes";
+   }
 
-header img
-{
-    width: 30px;
-}
-header a
-{
-    text-decoration: none; /* Elimina el subrayado del link de texto */
-}
+   header img {
+       width: 30px;
+   }
 
-header input
-{
-    
-    border: solid #69c7ca;
-    border-radius: 10px;
-    width: 600px;
-    height: 30px;
-}
+   header a {
+       text-decoration: none;
+       /* Elimina el subrayado del link de texto */
+   }
 
-header button
-{
-    color: white;
-    background-color: rgb(59, 60, 65);
-    border-radius: 400px;
-}
-header button:hover
-{
-    color: rgb(0, 0, 0);
-    background-color: rgba(59, 60, 65, 0);
-    border-radius: 400px;
-}
-.redes
-{   
-    grid-area: redes;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    padding: 2px;
-}
-.redes img
-{
-    margin-left: 10px;
-}
-.salir
-{
-    grid-area: salir;
-    display: flex;
-    align-items: center;
-    justify-content: initial;
-}
-.titulo
-{
-    grid-area: titulo;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+   header input {
 
-h1 {
-    margin: 0;
-}
+       border: solid #69c7ca;
+       border-radius: 10px;
+       width: 600px;
+       height: 30px;
+   }
+
+   header button {
+       color: white;
+       background-color: rgb(59, 60, 65);
+       border-radius: 400px;
+   }
+
+   header button:hover {
+       color: rgb(0, 0, 0);
+       background-color: rgba(59, 60, 65, 0);
+       border-radius: 400px;
+   }
+
+   .redes {
+       grid-area: redes;
+       display: flex;
+       align-items: center;
+       justify-content: end;
+       padding: 2px;
+   }
+
+   .redes img {
+       margin-left: 10px;
+   }
+
+   .salir {
+       grid-area: salir;
+       display: flex;
+       align-items: center;
+       justify-content: initial;
+   }
+
+   .titulo {
+       grid-area: titulo;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+   }
+
+   h1 {
+       margin: 0;
+   }
 
 
-.close-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-  }
-  .close-button i {
-    color: rgb(0, 0, 0);
-    font-size: 18px;
-  }
-  
+   .close-button {
+       background-color: transparent;
+       border: none;
+       cursor: pointer;
+       padding: 0;
+   }
 
-/* CONTENEDOR DEL NAV Y EL GRID DE PRODUCTOS */
-.container-nav-productos{
-    display: grid;
-    grid-template-columns: 1fr 6fr; /* Primera columna: 1fr, Segunda columna: 6fr */
-    grid-template-areas: 
-      "nav fotproductos";
-  }
-
-/* CONTENEDOR DE PRODUCTOS Y EL FOOTER */
-.container-prductos-footer
-{
-    display: grid;
-    grid-area: fotproductos;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr; 
-    grid-template-areas: 
-      "productos"
-      "pie";
-}
-
-/* CONJUNTO DE PRODCUTOS, SU GRID*/
-.productos {
-    display: grid;
-    grid-area: productos;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(10, auto);
-}
-
-.productos p:before {
-    content: "$";
-  }
-  
-
-/* SILDEBAR NAV, INFO PERFIL + FILTROS */
-.nav{
-    background-color: #00000018;
-    padding: 5px;
-    display: grid;
-    grid-area: nav;
-    grid-template-columns: 1fr; /* Una sola columna */
-    grid-template-rows: 0.5fr 2fr; /* Dos filas */
-    grid-template-areas:
-      "filtros"   /* cambie por perfil por filtros, funcionalidad de perfil lo dejamos  para lo ultimo si llegamos */
-      "seccion-carrito";
-}
-.filtros
-{
-    height: 240px;
-    padding: 10px;
-    border-radius: 10px;
-    grid-area: filtros;
-}
-
-.filtros .close-button {
-    border: solid black;
-    margin: 10px;
-    background-color: transparent;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 5px;
-
-}
-.filtros .close-button:hover{
-    background-color: #69c7ca;;
-    cursor: pointer;
-}
-
-.filtros li:hover
-{
-    cursor: pointer;
-    color: blue;
-}
-
-.filtros h5
-{
-    text-decoration: underline;
-}
+   .close-button i {
+       color: rgb(0, 0, 0);
+       font-size: 18px;
+   }
 
 
-/* PRODUCTO */
-.producto {
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-}
+   /* CONTENEDOR DEL NAV Y EL GRID DE PRODUCTOS */
+   .container-nav-productos {
+       display: grid;
+       grid-template-columns: 1fr 6fr;
+       /* Primera columna: 1fr, Segunda columna: 6fr */
+       grid-template-areas:
+           "nav fotproductos";
+   }
 
-/* boton agregar al carrito de los productos */
-.carrito 
-{
-    padding: 5px;
-}
+   /* CONTENEDOR DE PRODUCTOS Y EL FOOTER */
+   .container-prductos-footer {
+       display: grid;
+       grid-area: fotproductos;
+       grid-template-columns: 1fr;
+       grid-template-rows: 1fr;
+       grid-template-areas:
+           "productos"
+           "pie";
+   }
 
+   /* CONJUNTO DE PRODCUTOS, SU GRID*/
+   .productos {
+       display: grid;
+       grid-area: productos;
+       grid-template-columns: repeat(3, 1fr);
+       grid-template-rows: repeat(10, auto);
+   }
 
-.producto img {
-    width: 150px;
-    height: 150px;
-    margin: center;
-}
-
-.producto h3 {
-    margin: 0;
-}
-
-.producto button
-{
-    color: white;
-    background-color: cornflowerblue;
-    border-radius: 30px;
-}
-
-.producto button:hover 
-{
-    background-color: blue;
-}
-
-.pie{
-    display: flex;
-    align-items: center;
-    grid-area: pie;
-}
-    
-.pie h4{
-    color: gray;
-    margin-left: 0;
-}
-    
-.pie button {
-    color: gray;
-    background-color: transparent;
-    border: none;
-}
-    
-.pie button:hover {
-    color: blue;
-}
-
-/*----------puntos de corte-----------------*/
-
-/*tablet*/
-@media screen and (max-width: 768px)
-{
-    
-    header {
-        background-color: #69c7ca;;
-        margin-top: 5px;
-        margin-right: 5px;
-        margin-left: 5px;
-        border-radius: 100px;
-        color: #fff;
-        padding: 4px;
-        text-align: center;
-        display: grid;
-        grid-template-columns: 4fr 1fr; 
-        grid-template-areas: 
-        "titulo redes";
-    }
-
-    .container-nav-productos{
-        grid-template-areas: 
-          "fotproductos fotproductos";
-      }
-    
-    .nav
-    {
-        display: none;
-    }
-
-    .productos {
-        display: grid;
-        grid-area: productos;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(10, auto);
-    }
-
-    .pie
-    {
-        margin-left: 10px;
-    }
-
-    header img
-    {
-        margin-top: 5px;
-        width: 30px;
-    }
-
-}
-    
-/*celular*/
-@media screen and (max-width: 450px) 
-{   
-      
-    header {
-        background-color: #69c7ca;;
-        margin-top: 5px;
-        margin-right: 5px;
-        margin-left: 5px;
-        border-radius: 60px;
-        color: #fff;
-        padding: 4px;
-        text-align: center;
-        display: grid;
-        grid-template-columns: 1fr; 
-        grid-template-areas: 
-        "redes";
-    }
-
-    header h1
-    {
-            display: none;
-    }
-
-    .container-nav-productos{
-        grid-template-areas: 
-          "fotproductos fotproductos";
-      }
-    
-    .nav
-    {
-        display: none;
-    }
-
-    .productos {
-        display: grid;
-        grid-area: productos;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(10, auto);
-    }
-
-    .pie
-    {
-        margin-left: 10px;
-    }
-
-}
+   .productos p:before {
+       content: "$";
+   }
 
 
-#seccion-carrito
-{
+   /* SILDEBAR NAV, INFO PERFIL + FILTROS */
+   .nav {
+       background-color: #00000018;
+       padding: 5px;
+       display: grid;
+       grid-area: nav;
+       grid-template-columns: 1fr;
+       /* Una sola columna */
+       grid-template-rows: 0.5fr 2fr;
+       /* Dos filas */
+       grid-template-areas:
+           "filtros"
+           /* cambie por perfil por filtros, funcionalidad de perfil lo dejamos  para lo ultimo si llegamos */
+           "seccion-carrito";
+   }
+
+   .filtros {
+       height: 240px;
+       padding: 10px;
+       border-radius: 10px;
+       grid-area: filtros;
+   }
+
+   .filtros .close-button {
+       border: solid black;
+       margin: 10px;
+       background-color: transparent;
+       border-radius: 10px;
+       cursor: pointer;
+       padding: 5px;
+
+   }
+
+   .filtros .close-button:hover {
+       background-color: #69c7ca;
+       ;
+       cursor: pointer;
+   }
+
+   .filtros li:hover {
+       cursor: pointer;
+       color: blue;
+   }
+
+   .filtros h5 {
+       text-decoration: underline;
+   }
+
+
+   /* PRODUCTO */
+   .producto {
+       border-radius: 20px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       text-align: center;
+       padding: 10px;
+       margin: 5px;
+       border: 1px solid #ccc;
+   }
+
+   /* boton agregar al carrito de los productos */
+   .carrito {
+       padding: 5px;
+   }
+
+
+   .producto img {
+       width: 150px;
+       height: 150px;
+       margin: center;
+   }
+
+   .producto h3 {
+       margin: 0;
+   }
+
+   .producto button {
+       color: white;
+       background-color: cornflowerblue;
+       border-radius: 30px;
+   }
+
+   .producto button:hover {
+       background-color: blue;
+   }
+
+   .pie {
+       display: flex;
+       align-items: center;
+       grid-area: pie;
+   }
+
+   .pie h4 {
+       color: gray;
+       margin-left: 0;
+   }
+
+   .pie button {
+       color: gray;
+       background-color: transparent;
+       border: none;
+   }
+
+   .pie button:hover {
+       color: blue;
+   }
+
+
+   
+
+   #seccion-carrito {
     padding: 2px;
 }
 
-#seccion-carrito img
-{
+#seccion-carrito img {
     width: 50px;
     height: 50px;
     border-radius: 10px;
 }
 
-#seccion-carrito button
-{
-
-}
+#seccion-carrito button {}
 
 #confirmar {
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 20px;
-    padding: 5px;
-    width: 240px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0px; 
-}
-
-#confirmar > *:not(img) {
-    margin: 2px;
-}
-
-.producto-carrito {
-    
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 20px;
@@ -380,24 +260,39 @@ h1 {
     margin-bottom: 0px;
 }
 
-.producto-carrito > *:not(img) {
+#confirmar>*:not(img) {
     margin: 2px;
-  }
- 
-.boton-sumar, .boton-restar
-{
+}
+
+.producto-carrito {
+
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    padding: 5px;
+    width: 240px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.producto-carrito>*:not(img) {
+    margin: 2px;
+}
+
+.boton-sumar,
+.boton-restar {
     height: 30px;
     width: 30px;
     margin-top: 0 auto;
 }
 
-#boton-comprar
-{
+#boton-comprar {
     padding: 10px;
 }
 
-#boton-eliminar
-{
+#boton-eliminar {
     padding: 10px;
 }
 
@@ -406,29 +301,129 @@ h1 {
     align-items: center;
     padding: 5px;
 }
-  
-.cabecera-carrito >*{
+
+.cabecera-carrito>* {
     margin: 5px;
 }
 
-.cabecera-carrito img{
+.cabecera-carrito img {
     border: solid black;
 }
 
-.compra-total
-{
+.compra-total {
     padding: 4px;
 }
 
 
-#btn-confirmar
-{
+#btn-confirmar {
     background-color: rgb(135, 212, 141);
 }
 
-#arrow
-{  
+#arrow {
     font-weight: bold;
     font-size: 16px;
 }
-  
+
+/* ocultamos todo lo que tenga que ver con el punto de carga de celular */
+.menu
+{
+    display: none;
+}
+
+
+   /*----------puntos de corte-----------------*/
+
+   /*tablet*/
+   @media screen and (max-width: 768px) {
+
+       header input {
+
+           border: solid #69c7ca;
+           border-radius: 10px;
+           width: 400px;
+           height: 30px;
+       }
+
+       .salir {
+           grid-area: salir;
+           display: flex;
+           align-items: center;
+           justify-content: initial;
+       }
+
+       .nav {
+           display: block;
+       }
+
+       .productos {
+           grid-template-columns: 1fr 1fr;
+       }
+}
+
+   /*celular*/
+   @media screen and (max-width: 450px) {
+    header {
+        position: fixed;
+        z-index: 9999;
+        background-color: #69c7ca;
+        color: #fff;
+        padding: 4px;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        grid-template-areas:
+            "menu titulo redes";
+    }
+
+    #contadorCarrito
+    {
+        position: absolute;
+    }
+
+    #carritoEnCelu
+    {
+        margin-left: 10px;
+    }
+
+    header input {
+        border-radius: 10px;
+        width: 175px;
+        height: 30px;
+    }
+
+    .salir {
+        display: none;
+    }
+    .menu
+    {
+        display: block;
+        grid-area: menu;
+        width: 20px;
+    }
+
+
+    #carritoEnCelu
+    {
+        background-color: #69c7ca;
+        border: none;
+        cursor: pointer;
+    }
+
+    .container-nav-productos {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "fotproductos";
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .productos {
+
+        margin-top :40px;
+        grid-template-columns: 1fr;
+   }
+   
+}
