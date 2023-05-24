@@ -6,6 +6,8 @@ const anteriorInput = document.getElementById("anterior");
 const h3Element = document.getElementById("numero-pagina");
 const cruz = document.getElementById("borrar-busquedad");
 const filtroBorrar = document.getElementById("borrar-filtros");
+var arregloProductos = [];
+const divTotal = document.createElement("div");
 
 buscarInput.addEventListener("input", function () {
   const searchTerm = buscarInput.value.toLowerCase();
@@ -134,20 +136,22 @@ filtroBorrar.addEventListener("click", function () {
   buscarInput.dispatchEvent(new Event("input"));
 });
 
-
-
+/*EL BUCLE FOR EACH RECORRE TODOS LOS PRODUCTOS COLOCADOS EN LA PÁGINA, Y CUANDO EN ALGUNO DE ELLOS SE APRETA EL BOTÓN "AGREGAR AL CARRITO" 
+DE UN PRODUCTO, SE CREA UN NUEVO ELEMENTO EN LA SECCIÓN DEL CARRITO QUE CONTIENE LA INFORMACIÓN DE ESE PRODUCTO. DE ESTA MANERA, SE VA 
+CONSTRUYENDO DINÁMICAMENTE EL CONTENIDO DEL CARRITO A MEDIDA QUE SE VAN AGREGANDO PRODUCTOS.*/
 const botonesCarrito = document.querySelectorAll(".carrito");
-var arregloProductos = [];
-const divTotal = document.createElement("div");
-
 botonesCarrito.forEach((boton) => {
   boton.addEventListener("click", (event) => {
+
+    const contadorCarrito = document.querySelector("#contadorCarrito");
+    contadorCarrito.textContent = contarHijosSeccionCarrito();
+    contadorCarrito.style.color = "RED";
+  
     const contenedorProducto = boton.closest(".producto");
     const nombreProducto = contenedorProducto.querySelector("h3").textContent;
     var precioProducto = contenedorProducto.querySelector("p").textContent;
     const imagenProducto = contenedorProducto.querySelector("img").src;
     let contador = 1;
-
 
     const infoProducto = document.createElement("div");
     infoProducto.classList.add("producto-carrito");
@@ -163,12 +167,11 @@ botonesCarrito.forEach((boton) => {
     const seccionDestino = document.querySelector("#seccion-carrito");
     seccionDestino.appendChild(infoProducto);
 
-
     divTotal.style.display = "none";
 
+    // SUMA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
     const botonSumar = infoProducto.querySelector(".boton-sumar");
     botonSumar.addEventListener("click", (event) => {
-
       var precio = infoProducto.querySelector("p");
       var contadorDiv = infoProducto.querySelector("h6:last-of-type");
 
@@ -185,14 +188,13 @@ botonesCarrito.forEach((boton) => {
       }
 
       const confirmar = document.querySelector("#confirmar");
-      confirmar.querySelector("p").textContent = "Precio total del carrito: $" + carritoTotal;
-
+      confirmar.querySelector("p").textContent =
+        "Precio total del carrito: $" + carritoTotal;
     });
 
-
+    // RESTA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
     const botonRestar = infoProducto.querySelector(".boton-restar");
     botonRestar.addEventListener("click", (event) => {
-
       var precio = infoProducto.querySelector("p");
       var contadorDiv = infoProducto.querySelector("h6:last-of-type");
 
@@ -202,67 +204,123 @@ botonesCarrito.forEach((boton) => {
       contadorDiv.textContent = contador;
       precio.textContent = "$" + precioTotal;
 
-
       if (contador < 1) {
         let index = arregloProductos.indexOf(infoProducto);
         arregloProductos.splice(index, 1);
         infoProducto.remove();
       }
-      
 
       let carritoTotal = 0;
       for (let i = 0; i < arregloProductos.length; i++) {
         let elementoP = arregloProductos[i].querySelector("p");
         let contenidoP = elementoP.textContent;
         carritoTotal = carritoTotal + parseFloat(contenidoP.replace("$", ""));
-        alert(i);
       }
 
       const confirmar = document.querySelector("#confirmar");
-      confirmar.querySelector("p").textContent = "Precio total del carrito: $" + carritoTotal;
-
-
+      confirmar.querySelector("p").textContent =
+        "Precio total del carrito: $" + carritoTotal;
     });
-
   });
 });
 
-
+///click en comprar y nos muestra el valor final y nos sale un boton nuevo que dice "confirmar compra" para pasar a la pagina de confirmacion
 const botonComprar = document.querySelector("#boton-comprar");
 botonComprar.addEventListener("click", (event) => {
-  
-    let carritoTotal = 0;
-    for (let i = 0; i < arregloProductos.length; i++) {
+  let carritoTotal = 0;
+  for (let i = 0; i < arregloProductos.length; i++) {
     let elementoP = arregloProductos[i].querySelector("p");
     let contenidoP = elementoP.textContent;
     carritoTotal += parseFloat(contenidoP.replace("$", ""));
-    }
+  }
 
-    divTotal.style.display = "Block";
-    divTotal.id = "confirmar";
-    divTotal.innerHTML = `
+  divTotal.style.display = "Block";
+  divTotal.id = "confirmar";
+  divTotal.innerHTML = `
       <p>${"Precio total del carrito: $" + carritoTotal}</p>
       <button id="btn-confirmar"> Confirmar comprar </button>
     `;
 
-    const seccionDestino = document.querySelector("#seccion-carrito");
-    seccionDestino.appendChild(divTotal);
+  const seccionDestino = document.querySelector("#seccion-carrito");
+  seccionDestino.appendChild(divTotal);
 
-    const botonConfirmar = document.querySelector("#btn-confirmar");
-    botonConfirmar.addEventListener("click", () => {
-    window.location.href = "confirmar-compra.html";
-    ///crear aca el sildebar y main de confirmar.compra.html
-    });
+  //cuando le damos a confirmar compra, se guarda el carrito en el local storage,
+  //para despues poder acceder desde el otro html a los prodctos que cargo el cliente en el carrito final
+  const botonConfirmar = document.querySelector("#btn-confirmar");
+  botonConfirmar.addEventListener("click", () => {
+    //si hay prodcutos en el carrito se pasa al local storage, si no los hay se muestra en alerta "Carrito vacio, porfavor ingresa productos"
+    if (carritoTotal != 0) {
+      let productosFinales = []; // Declarar el arreglo de productosFinales
+      for (let i = 0; i < arregloProductos.length; i++) {
+        // Acceder al contenido de cada etiqueta (descripción del producto y su precio)
+        let nombre = arregloProductos[i].querySelector("h6");
+        let precio = arregloProductos[i].querySelector("p");
+        let img = arregloProductos[i].querySelector("img");
 
+        let objeto = {
+          articulo: nombre.textContent,
+          precio: precio.textContent,
+          imagen: img.src,
+        };
+        // Agregar objeto al arreglo productosFinales
+        productosFinales[i] = objeto;
+      }
+      // Convertir el arreglo a un JSON
+      let objetoJSON = JSON.stringify(productosFinales);
+      // Almacenar el arreglo completo en el localStorage
+      localStorage.setItem("productos", objetoJSON);
+      // Redireccionar hacia la página "confirmar-compra.html"
+      window.location.href = "confirmar-compra.html";
+    }
+    else {
+      alert("Carrito vacio, porfavor ingresa productos");
+    }
+  });
 });
 
 const botonEliminar = document.querySelector("#boton-eliminar");
 botonEliminar.addEventListener("click", (event) => {
   const seccion = document.querySelector("#seccion-carrito");
   let i = seccion.children.length;
-  while ((seccion.children[i - 1]) && (i > 1)) { //ELIMINO LOS HIJOS (PRODUCTOS) DE LA SEECCION CARRITO
+  while (seccion.children[i - 1] && i > 1) {
+    //ELIMINO LOS HIJOS (PRODUCTOS) DE LA SEECCION CARRITO
     seccion.removeChild(seccion.lastChild);
     i--;
   }
+
+    contadorCarrito.textContent = 0;
+    contadorCarrito.style.color = "white";
   arregloProductos.splice(0, arregloProductos.length); //BORRO EL ARREGLO, PARA QUE SE RENICIE EL CARRITO Y EL VALOR TOTAL
 });
+
+
+const carritoEnCelu = document.querySelector("#carritoEnCelu");
+let clickeado = false;
+carritoEnCelu.addEventListener("click", function () {
+  clickeado = !clickeado; // Cambiar el valor de clickeado a su opuesto
+  const seccionCarritoCelu = document.querySelector(".nav");
+  carritoEnCelu.style.marginLeft = "15px";
+  if (clickeado) {
+    carritoEnCelu.style.border="solid red"
+    carritoEnCelu.style.borderRadius = "3px";
+    const scrollTopPos = window.scrollY + 40;
+    seccionCarritoCelu.style.marginTop = `${scrollTopPos}px`;
+    seccionCarritoCelu.style.display = "block";
+    seccionCarritoCelu.style.position = "absolute";
+    seccionCarritoCelu.style.background = "white";
+    seccionCarritoCelu.style.border = "solid black";
+  } else {
+    seccionCarritoCelu.style.display = "none";
+    carritoEnCelu.style.border="solid  #69c7ca";
+    carritoEnCelu.style.borderRadius = "3px";
+  }
+});
+
+function contarHijosSeccionCarrito() {
+  const seccionDestino = document.querySelector("#seccion-carrito"); 
+  var cantidadHijos = seccionDestino.childElementCount;
+  return cantidadHijos;
+}
+
+
+
