@@ -2,47 +2,213 @@ body{
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #eee;
 }
 
 .contenedor{
-    width: 100%;
     display: grid;
-    margin: 0 auto;
-    margin-top: 0 auto;
     gap: 20px;
-    height: 100vh;
     /*3 colunas: contenido (con 2 widgets) + sidebar*/
     grid-template-columns: 1fr 1fr 1fr;
 
     /*4 filas: header, contenido, widgets, footer*/
-    grid-template-rows: 1fr 6fr 2fr;
+    grid-template-rows: 0.5fr 8fr 0.5fr 0.5fr;
 
     grid-template-areas: "encabezado encabezado encabezado"
-                         "contenido contenido carrito"
+                         "contenido contenido carritoFin"
+                         "continuar continuar continuar"
                          "pie pie pie";
+}
+.continuar
+{
+    margin-left: 50px;
+    margin-right: 50px;
+    grid-area: continuar;
+}
+
+.continuar button
+{
+    background-color: #002fff;
+    color: white;
+    width: 130px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 100px;
 }
 
 .encabezado{
-    background: darkblue;
-    color: #fff;
-    grid-area: encabezado; 
+    grid-area: encabezado;
     background-image: url(fondo-header.png);
+    height: 100px;
 }
 
-.carrito {
-    background: rgb(57, 57, 124);
-    color: #fff;
-    grid-area: carrito; 
+
+#carritoFin {
+    margin: 30px;
+    background-color: #ffffff;
+    color: #000000;
+    grid-area: carritoFin; 
+    height: auto;
 }
 
-.contenido{
-    background: #af0b0b;
+.titulo
+{
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.producto-carrito {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.producto-info {
+    margin-left: 10px;
+}
+
+.producto-info p {
+    margin: 0;
+}
+
+.producto-carrito img
+{
+    height: 60px;
+    width: 60px;
+}
+
+.precioTotal
+{
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+
+
+.contenido {
+    margin: 30px;
     color: #000;
     grid-area: contenido; 
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "checkuno"
+                         "checkdos";
+    padding: 10px;
+    grid-gap: 50px;
+    height: auto;
+}
+
+.contenido button
+{
+    background-color: rgb(190, 190, 190);
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    font-size: 15px;
+    width: 250px;
+    height: 40px;
+}
+
+.contenido button:hover
+{
+    background-color: rgb(115, 168, 126);
+    color: rgb(255, 255, 255);
+}
+
+#checkuno {
+    border-radius: 5px;
+    background-color: #ffffff;;
+    grid-area: checkuno;
+    display: grid;
+    grid-template-columns: 0.5fr 4fr 1fr;
+    grid-template-areas: "check texto precio";
+    box-shadow: 0 0 10px rgb(104, 104, 104);
+}
+
+
+#checkdos {
+    border-radius: 5px;
+    background-color: #ffffff;
+    grid-area: checkdos;
+    display: grid;
+    grid-template-columns: 0.5fr 4fr 1fr;
+    grid-template-areas: "check texto precio";
+    box-shadow: 0 0 10px rgb(104, 104, 104);
+}
+
+.check input[type="radio"] {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.check {
+    
+    grid-area: check;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.texto {
+    
+    grid-area: texto;
+    display: flex;
+    
+    align-items: center;
+}
+
+.precio {
+    
+    grid-area: precio;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.precio h3
+{
+    color: rgb(29, 180, 29);
+    margin-left: 20px;
+    
 }
 
 .contenedor .pie{
-    background: darkblue;
-    color: #fff;
-    grid-area: pie; 
+    grid-area: pie;
 }
+
+.direccionCodeCity {
+    border-radius: 5px;
+    height: 30px;
+    width: 800px;
+    border: solid rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgb(104, 104, 104);
+}
+
+.codigoPostalContainer a
+{
+    margin-left: 40px;
+}
+
+.initial
+{
+    display: flex;
+    align-items: center;
+    justify-content: initial;
+}
+.end
+{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#arrow
+{  
+    font-weight: bold;
+    font-size: 16px;
+}
+  

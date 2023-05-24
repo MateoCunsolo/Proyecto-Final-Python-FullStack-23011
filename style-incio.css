@@ -22,19 +22,19 @@ header{
 }
 
 nav {
-  text-align: center; /* Centra el contenido horizontalmente */
+  text-align: center; 
 } 
 
 nav ul {
-  display: inline-block; /* Evita que la lista ocupe todo el ancho */
-  list-style-type: none; /* Quita los puntos de la lista */
-  padding: 0; /* Elimina el espacio interno de la lista */
+  display: inline-block;
+  list-style-type: none; 
+  padding: 0;
  
 }
 
 nav li {
-  display: inline-block; /* Coloca los elementos en línea */
-  margin: 0 10px; /* Agrega un margen horizontal para separar los elementos */
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .sinsubrayado{
@@ -250,7 +250,6 @@ nav a:hover{
                       "spotify"
                       "comentarios";
   padding: 10px;
-
 }
 
 .spotify
@@ -266,16 +265,13 @@ nav a:hover{
 
 .spotify p, h2{
   /* Estilo del texto */
-  font-family: "Helvetica Neue", sans-serif;
-  
+  font-family: "Helvetica Neue", sans-serif;  
   font-weight: bold;   
   text-align: center;
   line-height: 1.5;
   text-shadow: 2px 2px #eaeaea;
   border-radius: 10px;
-  padding: 10px;
-  
-  
+  padding: 10px; 
 }
 
 .spotifyText{
@@ -283,8 +279,9 @@ nav a:hover{
   margin-top: 0%;
   grid-area: spotifyText;
   font-size: 22px; 
+}
 
-}.titulomapa{
+.titulomapa{
   font-size: 32px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -293,7 +290,6 @@ nav a:hover{
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 1%;
-
 }
 
 .spotifyIframe { 
@@ -423,4 +419,3 @@ nav a:hover{
   height: 100%;
   border: none;
 }
-
