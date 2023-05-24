@@ -1,232 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Shop Mis Patitas</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop Mis Patitas</title>
 
-  <!--links de estilos -->
-  <link rel="stylesheet" href="style-incio.css">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!--links de estilos -->
+    <link rel="stylesheet" href="style-incio.css">
+    <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-  <!-- Link icon -->
-  <link rel="icon" href="icono.ico">
+    <!-- Link icon -->
+    <link rel="icon" href="icono.ico">
 
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
-</head>
+  </head>
 
-<body>
+  <body>
 
+    <header class="title">
+      <h1 class="titulo_ppal">Pet Shop Mis Patitas</h1>
+    </header>
 
-  <header>
-    <h1 class="titulo_ppal">Pet Shop Mis Patitas</h1>
-  </header>
+    <div class="caja">
+      <nav> 
+        <ul>          
+          <li> <a href="shop-pag1.html"class="sinsubrayado" target="_blank"> Productos</a></li>
+          <li> <a href="#Servicios"class="sinsubrayado">Servicios</a></li>
+          <li> <a href="contacto.html"class="sinsubrayado" target="_blank" >Contacto</a></li>
+          <li> <a href="api.html" class="sinsubrayado" target="_blank" > Juegos</a></li>
+        </ul>
+      </nav>
+    </div>  
 
-  <nav id="contenedor">
-    <a href="inicio.html">
-      <h4>Inicio</h4>
-    </a>
-    <a href="shop-pag1.html">
-      <h4>Productos</h4>
-    </a>
-    <a href="#Servicios">
-      <h4>Servicios</h4>
-    </a>
-    <a href="shop-pag1.html">
-      <h4>Ofertas</h4>
-    </a>
-    <a href="contacto.html">
-      <h4>Contacto</h4>
-    </a>
-  </nav>
-
-  <div class="carousel">
-    <div><img src="Banners/banner.png"></div>
-    <div><img src="Banners/banner2.png"></div>
-    <div><img src="Banners/banner3.png"></div>
-  </div>
-
-  <main class="grid-container">
-
-    <div class="contenedor-servicios" id="Servicios">
-
-      <button>
-        <div class="duchas">
-          <h3 class="texto">Duchas relajantes</h3>
-          <p>¡Ofrecemos un servicio de duchas relajantes para mascotas que no encontrarás en ningún otro lugar! Sabemos
-            que bañar a tu mascota puede ser una tarea difícil, especialmente cuando no les gusta el agua. Nuestras
-            duchas son diseñadas para brindarle a tu peludo amigo la experiencia más relajante y agradable. Además,
-            utilizamos productos de alta calidad y suaves para su piel. Ya sea que estén cubiertos de barro o
-            simplemente necesiten un refrescante, ¡estamos aquí para ayudar!</p>
-          <a href="shop-pag1.html">
-            <img src="Img Servicios/ducha.jpg" alt="Perro en ducha">
-          </a>
-        </div>
-      </button>
-
-      <button>
-        <div class="corte">
-          <h3 class="texto">Cortes modernos</h3>
-          <p>¿Estás cansado de los mismos cortes para tu mascota? ¡En nuestra tienda de mascotas, ofrecemos cortes
-            modernos para mantener a tu peludo amigo a la moda! Desde cortes de pelo cortos y limpios hasta estilos más
-            largos y elegantes, nuestro equipo de profesionales cuidará a tu mascota con el mayor amor y cuidado.
-            Sabemos lo importante que es para ti mantener a tu mascota feliz y saludable, y nuestro servicio de corte
-            moderno puede hacer precisamente eso.</p>
-          <a href="shop-pag1.html">
-            <img src="Img Servicios/cortes.jpg" alt="Perro cortandose el pelo">
-          </a>
-        </div>
-      </button>
-
-      <button>
-        <div class="espa">
-          <p>¡Tenemos una increíble spa de masajes para mascotas que te encantará! Sabemos que a tus mascotas les
-            encanta ser mimados tanto como a ti, es por eso que ofrecemos servicios de spa exclusivos para ellos.
-            Nuestro equipo de expertos sabe cómo tratar a tu mascota con los mejores cuidados, utilizando técnicas de
-            masaje relajantes para aliviar el estrés y la tensión muscular. Además, utilizamos productos de alta calidad
-            y naturales para asegurar la piel y el pelaje de tu mascota estén en óptimas condiciones. ¡Tu mascota se
-            sentirá renovada y rejuvenecida después de visitar nuestra spa de masajes para mascotas!</p>
-          <h3 class="texto"> Increíble espa</h3>
-          <a href="shop-pag1.html">
-            <img src="Img Servicios/espa.jpg" alt="Perro siendo masajeado">
-          </a>
-        </div>
-      </button>
-
-      <div class="ofertas">
-        <h3 class="texto">Ofertas</h3>
-        <a href="shop-pag1.html">
-          <img src="Img Servicios/oferta.png" alt="Chancho ofertas">
-        </a>
-      </div>
-
+    <div class="carousel">  
+      <div><img src="Banners/banner.png"></div>
+      <div><img src="Banners/banner2.png"></div>
+      <div><img src="Banners/banner3.png"></div>
     </div>
 
-    <div class="contenedor-redes">
-      <div id="icons">
-        <a href="#a"><img src="Icons Redes Sociales/facebook.png" alt=""></a>
-        <a href="#a"><img src="Icons Redes Sociales/instagram.png" alt=""></a>
-        <a href="#a"><img src="Icons Redes Sociales/twitter.png" alt=""></a>
-      </div>
-    </div>
+    <main class="grid-container">
 
-    <div class="contenedor-whatsapp">
-      <img src="Icons Redes Sociales/whatsapp.png">
-      <div>
-        <h3>Escríbenos en WhatsApp</h3>
-        <p>¿Tienes alguna pregunta? ¡Escríbenos en WhatsApp y te responderemos lo antes posible!</p>
-      </div>
-      <input class="mensaje-whatsapp" type="text" placeholder="Escriba su mensaje aqui...">
-    </div>
+      <div class="contenedor-servicios" id="Servicios">
 
-    <div class="contenedor-iframes">
-
-      <div class="mapa">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26239.538288751948!2d-58.4566183396613!3d-34.70663560049867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccdc277dde75b%3A0x641a8c88aca9a233!2sPet%20Shop%20Patitas!5e0!3m2!1ses-419!2sar!4v1683385839539!5m2!1ses-419!2sar"
-          width="100%" height="230" ;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-
-      <div class="contenedor-spotify-comentarios">
-
-        <div class="spotify">
-
-          <div class="spotifyText">
-            <h2>Musica relajante para tus mascotas</h2>
-            <p>Dale play a la lista de música relajante si deseas mejorar el bienestar emocional y físico de tu mascota.
-              La música relajante puede estimular la relajación del sistema nervioso, reducir la tensión muscular y
-              promover una sensación general de bienestar en tus mascotas.</p>
+        <button>
+          <div class="duchas">
+            <h3 class="texto">Duchas relajantes</h3>
+            <p>¡Ofrecemos un servicio de duchas relajantes para mascotas que no encontrarás en ningún otro lugar! Sabemos
+              que bañar a tu mascota puede ser una tarea difícil, especialmente cuando no les gusta el agua. Nuestras
+              duchas son diseñadas para brindarle a tu peludo amigo la experiencia más relajante y agradable. Además,
+              utilizamos productos de alta calidad y suaves para su piel. Ya sea que estén cubiertos de barro o
+              simplemente necesiten un baño refrescante, ¡estamos aquí para ayudar!</p>
+              <img src="Img Servicios/ducha.jpg" alt="Perro en ducha">
           </div>
+        </button>
 
-          <div class="spotifyIframe">
-            <iframe style="border-radius:12px"
-              src="https://open.spotify.com/embed/artist/4vfs9xgAIR4IB6RzbqHjy8?utm_source=generator" width="100%"
-              height="352" frameBorder="0" allowfullscreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"></iframe>
+        <button>
+          <div class="corte">
+            <h3 class="texto">Cortes modernos</h3>
+            <p>¿Estás cansado de los mismos cortes para tu mascota? ¡En nuestro showroom ofrecemos cortes
+              modernos para mantener a tu peludo amigo a la moda! Desde cortes de pelo cortos y limpios hasta estilos más
+              largos y elegantes, nuestro equipo de profesionales cuidará a tu mascota con el mayor amor y cuidado.
+              Sabemos lo importante que es para ti mantener a tu mascota feliz y saludable, y nuestro servicio de corte
+              moderno está para eso.</p>
+              <img src="Img Servicios/cortes.jpg" alt="Perro cortandose el pelo">
+            
           </div>
+        </button>
 
-        </div>
-
-        <div class="comentarios">
-
-          <div class="logo">
-            <h2>Referencias</h2>
-            <img  class="comenImg" id="logo-img" src="icono.ico" alt="">
+        <button>
+          <div class="espa">
+            <p>¡Tenemos un increíble spa de masajes para mascotas! Sabemos que les
+              encanta ser mimados tanto como a ti, es por eso que ofrecemos servicios de spa exclusivos   .
+              Nuestro equipo de expertos sabe cómo tratar a tu mascota con los mejores cuidados, utilizando técnicas de
+              masaje relajantes para aliviar el estrés y la tensión muscular. Además, utilizamos productos de alta calidad
+              y naturales para asegurar la piel y el pelaje de tu mascota estén en óptimas condiciones. ¡Tu mascota se
+              sentirá renovada y rejuvenecida después de visitar nuestro spa de masajes!</p>
+            <h3 class="texto"> Increíble Spa</h3>          
+              <img src="Img Servicios/espa.jpg" alt="Perro siendo masajeado">
           </div>
+        </button>
 
-          
-          <div class="contenedor-izquierda">
-            <div class="margenDER">
-              
-              <img  class="comenImg" src="Img comentarios/comentario.png" alt="">
-            </div>
-
-            <div class="margenIZQ">
-              <img src="Img comentarios/comentario2.png" alt="">
-            </div>
-
-            <div class="margenDER">
-              <img  class="comenImg" src="Img comentarios/comentario3.png" alt="">
-            </div>
-
-          </div>
-
-          <div class="contenedor-derecha">
-
-            <div class="margenDER">
-              <img  class="comenImg" src="Img comentarios/comentario4.png" alt="">
-            </div>
-
-            <div class="margenEND">
-              <img  class ="comenImg" src="Img comentarios/comentario5.png" alt="">
-            </div>
-
-            <div class="margenDER">
-              <img  class="comenImg" src="Img comentarios/comentario6.png"alt="">
-            </div>
-
-          </div>
-        </div>
+        <div class="ofertas">
+          <h3 class="texto"> Ofertas</h3>
+          <a href="shop-pag1.html" target="_blank">
+            <img src="Img Servicios/oferta.png" alt="Chancho ofertas">
+          </a>
+        </div>  
         
-
       </div>
 
-    </div>
+      <div class="contenedor-chatbot">
+        <!-- Código de instalación Cliengo para www.mispatitas.com.ar --> 
+        <script type="text/javascript">(function () { var ldk = document.createElement('script'); ldk.type = 'text/javascript'; ldk.async = true; ldk.src = 'https://s.cliengo.com/weboptimizer/64600e12ebee200032cea37a/6466080dc7514700325157d9.js?platform=onboarding_modular'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ldk, s); })();</script>
+      </div> 
 
-    <div class="contenedor-footer">
+      <div class="contenedor-iframes">
 
+        <div class="mapa">
+          <h2 class="titulomapa">¿Donde estamos?</h2>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26239.538288751948!2d-58.4566183396613!3d-34.70663560049867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccdc277dde75b%3A0x641a8c88aca9a233!2sPet%20Shop%20Patitas!5e0!3m2!1ses-419!2sar!4v1683385839539!5m2!1ses-419!2sar"
+            width="100%" height="230" ; loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="contenedor-spotify-comentarios">
+
+          <div class="spotify">
+
+            <div class="spotifyText">
+              <h2>Sabias que la música ayuda a relajar a tus mascotas</h2>
+              <p> Escucha nuestra PlayList relajante para mejorar el bienestar emocional y físico de tu mascota.
+                La música estimular la relajación del sistema nervioso, ayuda a reducir la tensión muscular y
+                promover una sensación general de bienestar en tus mascotas.</p>
+            </div>
+
+            <div class="spotifyIframe">
+              <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/artist/4vfs9xgAIR4IB6RzbqHjy8?utm_source=generator" width="100%"
+                height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+
+          </div>
+
+          <div class="comentarios">            
+            <div class="logo">
+              <h2>Referencias</h2>
+              <img  class="comenImg" id="logo-img" src="icono.ico" alt="">
+            </div>
+            
+            <div class="contenedor-izquierda">
+              <div class="margenDER">
+              <img  class="comenImg" src="Img comentarios/comentario.png" alt="">
+              </div>
+
+              <div class="margenIZQ">
+              <img src="Img comentarios/comentario2.png" alt="">
+              </div>
+
+              <div class="margenDER">
+              <img  class="comenImg" src="Img comentarios/comentario3.png" alt="">
+              </div>
+            </div>
+
+            <div class="contenedor-derecha">
+
+              <div class="margenDER">
+                <img  class="comenImg" src="Img comentarios/comentario4.png" alt="">
+              </div>
+
+              <div class="margenEND">
+                <img  class ="comenImg" src="Img comentarios/comentario5.png" alt="">
+              </div>
+
+              <div class="margenDER">
+                <img  class="comenImg" src="Img comentarios/comentario6.png"alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <footer>
-        <p>Yuskeyli Avila & Mateo Cunsolo 2023. Todos los derechos reservados.</p>
-        <a href="#">Ir a arriba</a>
+        
+        <div class="contenedor-redes">
+          <h2> Siguenos en nuestras redes sociales para enterarte de todo lo que tenemos para tu mascota</h2>
+            <div id="icons">
+              <a href="https://www.facebook.com/" target="_blank"><img src="Icons Redes Sociales/facebook.png" alt=""></a>
+              <a href="https://www.instagram.com/"target="_blank"><img src="Icons Redes Sociales/instagram.png" alt=""></a>
+              <a href="https://twitter.com/ "target="_blank"><img src="Icons Redes Sociales/twitter.png" alt=""></a>
+        </div>     
+
+        <div id="firma">
+              <p>Yuskeyli Avila & Mateo Cunsolo 2023. Todos los derechos reservados.</p>
+              <p class="copyright">&copy Copyright Pet Shop Mis Patitas</p>                
+              <a href="inicio.html">Ir a arriba</a>              
+        </div>
       </footer>
 
-    </div>
+    </main>
 
-  </main>
 
-  <script>
-    $(document).ready(function () {
-      $('.carousel').slick({
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false,
-        dots: true,
-        pauseOnHover: false
+    <script>  
+      $(document).ready(function () {
+        $('.carousel').slick({
+          autoplay: true,
+          autoplaySpeed: 2000,
+          arrows: false,
+          dots: true,
+          pauseOnHover: false
+        });
       });
-    });
-  </script>
-
-
-</body>
-
+    </script>
+  </body>
 </html>
