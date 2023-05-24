@@ -7,26 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Shop Mis Patitas</title>
     <link rel="stylesheet" href="style-contacto.css">
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" href="icono.ico">
 
 </head>
 
 <body>
 
-    <header>
+    <header class="title">
         <h1 class="titulo_ppal">Pet Shop Mis Patitas</h1>
     </header>
 
-  <nav id="contenedor">
-    <a href="inicio.html">
-      <h4>Inicio</h4>
-    </a>
-  </nav>
+    <div class="caja">
+        <nav> 
+            <ul>
+                <li> <a href="inicio.html" class="sinsubrayado" target="_blank">Inicio</a></li>
+                <li> <a href="shop-pag1.html"class="sinsubrayado" target="_blank"> Productos</a></li>
+                <li> <a href="inicio.html#Servicios"class="sinsubrayado" target="_blank"> Servicios</a></li>
+                <li> <a href="api.html" class="sinsubrayado" target="_blank" > Juegos</a></li>
+                
+            </ul>
+        </nav>
+    </div> 
 
     <main class="contenedor-main">
         <div class="formulario">
-            <h2>Formulario de contacto</h2>
+            <a name="formulario"></a>
+            <h2 class="subtitulo" >Formulario de contacto</h2>
                 <form>
                     <div class="mb-3">
                       <label for="exampleInputNombre" class="form-label">Nombre y Apellido</label>
@@ -49,15 +57,13 @@
                         <label for="exampleFormControlTextarea1" class="form-label">Consultas y/o Sugerencias</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn-primary">Enviar</button>
                 </form>
-
         </div>           
         
 
         <div class="frecuentes">    
-            <h2>Preguntas Frecuentes</h2> 
-
+            <h2 class="subtitulo">Preguntas Frecuentes</h2> 
             <button class="accordion">Cúanto tarda mi envio</button>
             <div class="panel">
             <p>Para averiguar en cuánto tiempo se entregará su compra, 
@@ -115,7 +121,7 @@
                 Opera con VISA (Verified by VISA homologado), Mastercard, American Express, Cabal, Tarjeta 
                 Shopping y Tarjeta Naranja, cumpliendo con los estándares internacionales y locales definidos por las tarjetas mencionadas.</p>
             </div>
-            <button class="accordion">Devoluciones</button>
+            <button class="accordion">¿Como puedo hacer una devolución?</button>
             <div class="panel">
             <p>A partir de la recepción del paquete, usted cuenta con 10 días corridos para poder realizar cambios o devoluciones.
                 Para solicitar los cambios o devoluciones, puede contactarse por e-mail a devoluciones@mispatitas.com o telefónicamente al (54) 11 2233 4455 informando:
@@ -138,70 +144,74 @@
                 - motivo del cambio o devolución <br>
                 - código (ID que figura en la factura) y título del producto y código de producto
                 <br>
-                Le informaremos por e-mail la manera de realizar el cambio o devolución.    
-                Se aceptarán los cambios y devoluciones siempre y cuando los pproductos no hayan sido usados; 
-                no tengan signos de deterioro; roturas; escritos o manchados; 
-                se mantengan en el mismo estado en que se recibieron conservando los envoltorios 
-                o cajas originales, plásticos, con sus etiquetas incluyendo todo tipo de accesorios, si los hubiere.</p>
+                
             </div>
+
             <button class="accordion">¿Puedo hacer seguimiento del envío?</button>
             <div class="panel">
-            <p>Claro, envia tu curriculum a nuestro equipo de RRHH por e-mail a rrhh@mispatitas.com <br>
-                - número de pedido <br>
-                - motivo del cambio o devolución <br>
-                - código (ID que figura en la factura) y título del producto y código de producto
-                <br>
-                Al ser despachada la compra, recibirá un email donde le informaremos por que correo se despachó su pedido, el numero de encomienda y el link para que pueda realizar el seguimiento..</p>
+            <p>Claro, se te notificara via mail el tracking de tu envio y a traves de la pagina 
+                oficial del correo le podras hacer seguimiento <br>
+                
             </div>
 
-
-
-
-            <script>
-            // Obtenemos todos los elementos con la clase "accordion"
-            var acc = document.getElementsByClassName("accordion");
-
-            // Iteramos sobre los elementos y añadimos un evento de clic a cada uno
-            for (var i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                // Cambiamos la clase "active" para abrir o cerrar el panel
-                this.classList.toggle("active");
-
-                // Obtenemos el panel asociado al encabezado actual
-                var panel = this.nextElementSibling;
-
-                // Mostramos o ocultamos el panel
-                if (panel.style.display === "block") {
-                panel.style.display = "none";
-                } else {
-                panel.style.display = "block";
-                }
-            });
-            }
-            </script>
-
+            <button class="accordion">¿Puedo cancelar mi compra</button>
+            <div class="panel">
+            <p> Si! si aun no ha sido entegado puedes enviarnos un mail a ventas@mispatitas.com.ar<br>
                 
-        </div>
+            </div>
+            <button class="accordion">¿Tienen productos veganos?</button>
+            <div class="panel">
+            <p> Si!!! en nuestra sección de productos se encuentra la variedad que tenemos para ofrecer <br>
                 
+            </div>       
+
+        </div>                        
     </main>    
 
     
-    
-    <footer>
-        <div class="pie">   
-        <h4>2023. Todos los derechos reservados.</h4>
-        Yuskeyli Avila & Mateo Cunsolo
-        <br>
-        Pie de Pagina
-        <br>
-        <a href="#">Ir a arriba</a>
-        </div>
+    <footer>        
         <div class="cupon">
-            <h2>Completá tus datos y recibí tu cupón de 15% OFF en tu primera compra!!!!</h2> <button type="button" class="btn btn-primary">Quiero mi cupón</button>
-            
+            <h2>Completá tus datos y recibí tu cupón de 15% OFF en tu primera compra!!!!</h2> 
+            <button type="button" class="btn btn-primary" onclick="scrollToSection('formulario')">Quiero mi cupón</button>
+        </div>   
+        
+        <div class="banner-final">
+            <img src="Banners/banner4.jpeg" alt="envio">    
         </div>
-  
+
+        <div id="firma">
+            Yuskeyli Avila & Mateo Cunsolo 2023. Todos los derechos reservados 
+            <p class="copyright">&copy Copyright Pet Shop Mis Patitas</p>                
+            <a href="#">Ir a arriba</a>
+        </div>        
         
     </footer> 
+
+    <script>
+    // Obtenemos todos los elementos con la clase "accordion"
+    var acc = document.getElementsByClassName("accordion");
+
+    // Iteramos sobre los elementos y añadimos un evento de clic a cada uno
+    for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        // Cambiamos la clase "active" para abrir o cerrar el panel
+        this.classList.toggle("active");
+
+        // Obtenemos el panel asociado al encabezado actual
+        var panel = this.nextElementSibling;
+
+        // Mostramos o ocultamos el panel
+        if (panel.style.display === "block") {
+        panel.style.display = "none";
+        } else {
+        panel.style.display = "block";
+        }
+    });
+    }
+    </script>
+    <script src="contacto.js"></script>
+
+
+
 </body>
 </html>

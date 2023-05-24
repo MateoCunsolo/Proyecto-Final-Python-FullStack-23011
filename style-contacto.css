@@ -1,104 +1,107 @@
-
 *{
     margin-top: 0;
     margin: 0;
     background-color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
-header
-{   
+header{   
     margin: 0px;
     padding: 0px;
     background-image: url(fondo-header.png)
 }
 
 .titulo_ppal{
-    padding: 40px;
+    padding: 40px;  
     background-color: rgba(240, 248, 255, 0);
     text-align: center;
     font-weight: bold;
     color: rgb(0, 0, 0);
+    font-size: 300%;
+    text-shadow: 1px 1px 2px  rgb(200, 12, 12), 0 0 1em blue, 0 0 0.2em blue;
 }
 
-.subtitulo{
-    text-align: center;
+nav {
+    text-align: center; /* Centra el contenido horizontalmente */
+} 
+  
+nav ul {
+    display: inline-block; /* Evita que la lista ocupe todo el ancho */
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0; /* Elimina el espacio interno de la lista */
+   
 }
-
-#contenedor {
-    max-width: 200px;
-    background-color: #69c7ca;;
-    border: solid #69c7ca;
-    border-radius: 20px;
-    text-align: center; 
-    margin-top: 10px;
-    margin-left: 10px;
+  
+nav li {
+    display: inline-block; /* Coloca los elementos en línea */
+    margin: 0 10px; /* Agrega un margen horizontal para separar los elementos */
 }
-
-#contenedor a
-{
+  
+.sinsubrayado{
     text-decoration: none;
-    background-color: #69c7ca;
+    color: #060680;
+}
+  
+.caja{
+    width: 940px;
+    display: inline;
+    margin: 0 0 0 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 22px;   
 }
 
-#contenedor h4
-{
-    display: inline-block;
-    margin-right: 10px;
-    background-color: #69c7ca;
-    border: solid #69c7ca;
+nav a:hover{
+    color: #ab1111;
+    font-size: 120%;  
 }
-
-
 
 
 .contenedor-main {
-    margin-top: 50px;
+    margin-top: 20px;
     width: auto;
     height: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-   
+    grid-template-columns: 1fr 1fr;   
     grid-template-areas: "formulario frecuentes"
     "footer footer";
     margin: 0 auto;
-    grid-gap: 200px;
+    grid-gap: 50px;
     padding: 10px;
+    row-gap: 0;    
 }
+
 
 .formulario
 {   
     padding: 10px;
     grid-area: formulario;
+    border-style:groove;
+    justify-items: center;   
+}
+
+.subtitulo{
+    color: #060680;
+    text-align: center;
+}
+
+.frecuentes{
+    padding: 10px;
+    border-style:groove; 
+    grid-area: frecuentes;
+    justify-items: center;
+    align-content: center;
 }
 
 .form-controlArea
 {
     height: 200px;
     width: 610px;
-}
 
-.frecuentes
-{
-    padding: 10px;
-    box-shadow: 10px 10px 10px 10px #69c7ca;
-    grid-area: frecuentes;
-}
-
-footer {
-    background-color: #f8f9fa00;
-    text-align: center;
-    display: grid;
-    
-    grid-area: footer;
-
-    
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: "cupon"
-     "pie";
-    margin: 0 auto;
-    
+}  
  
-}
+
 /* Estilo para los encabezados */
 .accordion {
     background-color: #eee;
@@ -121,22 +124,33 @@ footer {
     overflow: hidden;
   }
 .cupon{
-    padding: 40px;    
+    padding: 10px;    
     text-align: center;
     font-weight: bold;
     color: rgb(11, 10, 10);
     font-size: xx-small;
-    grid-area: cupon;
-    
+    grid-area: cupon;      
 
 }
-
-.pie{
-    grid-area: pie;
-    align-items: center;
-    margin-bottom: auto;
-    
-}
-.pie img{
+.footer{
     width: 100%;
+    padding: 30px;    
 }
+
+.siguenos{
+    text-align: center;
+}
+
+.contenedor-redes{
+    text-align: center;
+}
+
+#firma{
+    text-align: center;    
+}
+
+.copyright{
+    color: #000000;
+    font-size: 13px;  
+    margin: 0px;
+} 

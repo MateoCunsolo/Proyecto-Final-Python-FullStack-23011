@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop Mis Patitas</title>
+    <link rel="stylesheet" href="style-api.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="icono.ico">
+  </head>
+  <body>
+    <header class="title">
+      <h1 class="titulo_ppal">Pet Shop Mis Patitas</h1>
+      <link rel="icon" href="icono.ico">
+    </header>
+    <div class="caja">
+      <nav>
+        <ul>
+          <li><a href="inicio.html" class="sinsubrayado">Inicio</a></li>
+          <li><a href="shop-pag1.html" class="sinsubrayado" target="_blank">Productos</a></li>
+          <li><a href="#Servicios" class="sinsubrayado">Servicios</a></li>
+          <li><a href="contacto.html" class="sinsubrayado" target="_blank">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="section1">
+      <h1>¿Quieres saber a qué Pokémon se parece tu mascota?</h1>
+      <div>
+        <form class="section2">
+          <input type="text" class="form-control" placeholder="Ingresa su nombre">
+          <button class="btn" type="submit">Buscar</button>
+        </form>
+      </div>
+      <div class="raza-container"></div>
+    </div>
+
+    <div class="wallpapers">
+      <h1>Tenemos una variedad de wallpapers</h1>
+      <div class="carousel_wallpapers">
+        <div><img src="1.jpg"></div>
+        <div><img src="2.jpg"></div>
+        <div><img src="3.jpg"></div>
+        <div><img src="4.jpg"></div>
+        <div><img src="5.jpg"></div>
+        <div><img src="6.jpg"></div>
+        <div><img src="7.jpg"></div>
+        <div><img src="8.jpg"></div>
+        <div><img src="9.jpg"></div>
+        <div><img src="10.jpg"></div>
+        <div><img src="11.jpg"></div>
+        <div><img src="12.jpg"></div>
+      </div>
+    </div>
+
+    <div class="juegos">
+      <div class="one">
+        <p>¿Qué frase de Chuck Norris te identifica hoy?</p>
+        <button type="button">Obtener frase</button>
+        <h2></h2>
+        <div><img src="chuck.jpg"></div>
+      </div>
+
+      <div class="container">
+        <p>¿Te gusta DC? ¿Conocías estos personajes?</p>
+        <div class="row" id="marvel-row"></div>
+      </div>
+
+      <div id="characters-container">
+        <h1>¿Quién sería tu familia en Los Simpsons?</h1>
+        <button id="btn-generate">Generar</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="contenedor-redes">
+        <h2>Síguenos en nuestras redes sociales para enterarte de todo lo que tenemos para tu mascota</h2>
+        <div id="icons">
+          <a href="https://www.facebook.com/" target="_blank"><img src="Icons Redes Sociales/facebook.png" alt=""></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="Icons Redes Sociales/instagram.png" alt=""></a>
+          <a href="https://twitter.com/" target="_blank"><img src="Icons Redes Sociales/twitter.png" alt=""></a>
+        </div>
+        <div id="firma">
+          <p>Yuskeyli Avila & Mateo Cunsolo 2023. Todos los derechos reservados.</p>
+          <p class="copyright">&copy;
+            Pet Shop Mis Patitas</p>
+          <a href="#">Ir a arriba</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.carousel_wallpapers').slick({
+          autoplay: true,
+          autoplaySpeed: 3000,
+          arrows: false,
+          dots: true,
+          pauseOnHover: false,
+          slidesToShow: 6,
+        });
+      });
+    </script>
+
+    <script src="contacto.js"></script>
+  </body>
+
+</html>
