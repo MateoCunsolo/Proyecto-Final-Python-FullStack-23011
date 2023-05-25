@@ -157,7 +157,6 @@ checkbox1.addEventListener("change", function () {
     costo de envio a $1500 en la seccion del carrito y en la checkbox1 se cambia "$ Esperando codigo postal" a -> $1500" Y ademas se muestran los datos del cliente
     en la seccion carritoFin */
     calcularCostoEnvio.addEventListener("click", function () {
-      calcularCostoEnvio.disabled = true;
 
       let valorCPIngresado = codigoPostalInput.value;
       let ciudadIngresada = ciudad.value;
@@ -165,6 +164,8 @@ checkbox1.addEventListener("change", function () {
       let nombreRecibeIngresada = nombreQuienRecibe.value;
 
       if (valorCPIngresado != "" && ciudadIngresada != "" && direccionIngresada != "") {
+        calcularCostoEnvio.disabled = true;
+
         let datosCliente = document.createElement("div");
         datosCliente.id = "datosCliente00";
         datosCliente.style.marginLeft = "20px";
