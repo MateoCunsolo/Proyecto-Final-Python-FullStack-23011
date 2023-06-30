@@ -1,153 +1,14 @@
-const buscarInput = document.getElementById("buscar");
-const productos = document.getElementsByClassName("producto");
-const footer = document.querySelector(".pie");
-const siguienteInput = document.getElementById("siguiente");
-const anteriorInput = document.getElementById("anterior");
-const h3Element = document.getElementById("numero-pagina");
-const cruz = document.getElementById("borrar-busquedad");
-const filtroBorrar = document.getElementById("borrar-filtros");
-var arregloProductos = [];
-const divTotal = document.createElement("div");
-
-buscarInput.addEventListener("input", function () {
-  const searchTerm = buscarInput.value.toLowerCase();
-  Array.from(productos).forEach(function (producto) {
-    const nombreProducto = producto
-      .getElementsByTagName("h3")[0]
-      .textContent.toLowerCase();
-    if (nombreProducto.includes(searchTerm) && searchTerm.length >= 3) {
-      producto.style.display = "Block";
-      footer.style.display = "none";
-    } else {
-      producto.style.display = "none";
-      footer.style.display = "none";
-    }
-    if (searchTerm == "") {
-      footer.style.display = "flex";
-      h3Element.textContent = "1 de 3";
-      mostrarElementosPorClase("pag1");
-      ocultarElementosPorClase("pag2");
-      ocultarElementosPorClase("pag3");
-    }
-  });
-});
-
-///al apretar la cruz roja, llama al afuncion buscarInput
-cruz.addEventListener("click", function () {
-  buscarInput.value = "";
-  buscarInput.dispatchEvent(new Event("input"));
-});
-
-// ocultar productos por clase
-function ocultarElementosPorClase(clase) {
-  const elementos = document.getElementsByClassName(clase);
-  for (let i = 0; i < elementos.length; i++) {
-    elementos[i].style.display = "none";
-  }
-}
-
-// mostrar prodcutos por clase
-function mostrarElementosPorClase(clase) {
-  const elementos = document.getElementsByClassName(clase);
-  for (let i = 0; i < elementos.length; i++) {
-    elementos[i].style.display = "block";
-  }
-}
-
-// ocultar productos pag2 y pag3... asi quedan solo los de la pag1const h3Element = document.getElementById("numero-pagina");
-ocultarElementosPorClase("pag2");
-ocultarElementosPorClase("pag3");
-anteriorInput.style.display = "none";
-
-// footer siguiente y anterior
-siguienteInput.addEventListener("click", function () {
-  if (h3Element.textContent === "1 de 3") {
-    ocultarElementosPorClase("pag1");
-    mostrarElementosPorClase("pag2");
-    anteriorInput.style.display = "Block";
-    h3Element.textContent = "2 de 3";
-  } else if (h3Element.textContent === "2 de 3") {
-    ocultarElementosPorClase("pag2");
-    mostrarElementosPorClase("pag3");
-    anteriorInput.style.display = "Block";
-    siguienteInput.style.display = "none";
-    h3Element.textContent = "3 de 3";
-  }
-});
-
-anteriorInput.addEventListener("click", function () {
-  if (h3Element.textContent === "2 de 3") {
-    ocultarElementosPorClase("pag2");
-    mostrarElementosPorClase("pag1");
-    h3Element.textContent = "1 de 3";
-    anteriorInput.style.display = "none";
-    siguienteInput.style.display = "Block";
-  } else if (h3Element.textContent === "3 de 3") {
-    ocultarElementosPorClase("pag3");
-    mostrarElementosPorClase("pag2");
-    h3Element.textContent = "2 de 3";
-    anteriorInput.style.display = "Block";
-    siguienteInput.style.display = "Block";
-  }
-});
-
-///-------FILTROS--------------
-
-//ALIMENTOS
-document.getElementById("alimentos").addEventListener("click", function () {
-  ocultarElementosPorClase("F-juguetes");
-  ocultarElementosPorClase("F-varios");
-  ocultarElementosPorClase("F-estetica");
-  mostrarElementosPorClase("F-alimentos");
-  footer.style.display = "none";
-});
-
-//JUGETES
-document.getElementById("juguetes").addEventListener("click", function () {
-  ocultarElementosPorClase("F-alimentos");
-  ocultarElementosPorClase("F-varios");
-  ocultarElementosPorClase("F-estetica");
-  mostrarElementosPorClase("F-juguetes");
-  footer.style.display = "none";
-});
-
-//VARIOS
-document.getElementById("varios").addEventListener("click", function () {
-  ocultarElementosPorClase("F-juguetes");
-  ocultarElementosPorClase("F-alimentos");
-  ocultarElementosPorClase("F-estetica");
-  mostrarElementosPorClase("F-varios");
-  footer.style.display = "none";
-});
-
-//ESTETICA
-document.getElementById("estetica").addEventListener("click", function () {
-  ocultarElementosPorClase("F-juguetes");
-  ocultarElementosPorClase("F-varios");
-  ocultarElementosPorClase("F-alimentos");
-  mostrarElementosPorClase("F-estetica");
-  footer.style.display = "none";
-});
-
-//eliminar filtro
-
-filtroBorrar.addEventListener("click", function () {
-  buscarInput.value = "";
-  buscarInput.dispatchEvent(new Event("input"));
-});
-
-
 /*EL BUCLE FOR EACH RECORRE TODOS LOS PRODUCTOS COLOCADOS EN LA PÁGINA, Y CUANDO EN ALGUNO DE ELLOS SE APRETA EL BOTÓN "AGREGAR AL CARRITO" 
 DE UN PRODUCTO, SE CREA UN NUEVO ELEMENTO EN LA SECCIÓN DEL CARRITO QUE CONTIENE LA INFORMACIÓN DE ESE PRODUCTO. DE ESTA MANERA, SE VA 
 CONSTRUYENDO DINÁMICAMENTE EL CONTENIDO DEL CARRITO A MEDIDA QUE SE VAN AGREGANDO PRODUCTOS.*/
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener("DOMContentLoaded", (event) => {
   const apiURL = "https://mateocunsolo.pythonanywhere.com/productos";
 
   // Realizar solicitud a la API
   fetch(apiURL)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       // Manipular los datos obtenidos de la API
       const productosContainer = document.querySelector(".productos");
 
@@ -173,13 +34,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
           mensaje = "No disponible";
         }
         cantidadElement.textContent = mensaje;
-        
+
         const cantidadValor = document.createElement("h6");
         cantidadValor.textContent = producto.cantidad;
 
         const precioElement = document.createElement("p");
         precioElement.textContent = producto.precio;
-        
 
         const carritoButton = document.createElement("button");
         carritoButton.classList.add("carrito");
@@ -200,26 +60,26 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
       });
 
-
-      
       const botonesCarrito = document.querySelectorAll(".carrito");
       botonesCarrito.forEach((boton) => {
-          boton.addEventListener("click", (event) => {
-            boton.disabled = true;
-            const contadorCarrito = document.querySelector("#contadorCarrito");
-            contadorCarrito.textContent = contarHijosSeccionCarrito();
-            contadorCarrito.style.color = "RED";
+        boton.addEventListener("click", (event) => {
+          boton.disabled = true;
+          const contadorCarrito = document.querySelector("#contadorCarrito");
+          contadorCarrito.textContent = contarHijosSeccionCarrito();
+          contadorCarrito.style.color = "RED";
 
-            const contenedorProducto = boton.closest(".producto");
-            const nombreProducto = contenedorProducto.querySelector("h3").textContent;
-            var precioProducto = contenedorProducto.querySelector("p").textContent;
-            const imagenProducto = contenedorProducto.querySelector("img").src;
-            var cantidad = contenedorProducto.querySelector("h6").textContent;
-            let contador = 1;
+          const contenedorProducto = boton.closest(".producto");
+          const nombreProducto =
+            contenedorProducto.querySelector("h3").textContent;
+          var precioProducto =
+            contenedorProducto.querySelector("p").textContent;
+          const imagenProducto = contenedorProducto.querySelector("img").src;
+          var cantidad = contenedorProducto.querySelector("h6").textContent;
+          let contador = 1;
 
-            const infoProducto = document.createElement("div");
-            infoProducto.classList.add("producto-carrito");
-            infoProducto.innerHTML = `
+          const infoProducto = document.createElement("div");
+          infoProducto.classList.add("producto-carrito");
+          infoProducto.innerHTML = `
                               <img src="${imagenProducto}">
                               <h6>${nombreProducto}</h6>
                               <p>${"$" + precioProducto}</p>
@@ -227,75 +87,71 @@ window.addEventListener('DOMContentLoaded', (event) => {
                               <button class="boton-restar">-</button>
                               <h6>${contador}</h6>
                               `;
-            arregloProductos.push(infoProducto);
-            const seccionDestino = document.querySelector("#seccion-carrito");
-            seccionDestino.appendChild(infoProducto);
-            divTotal.style.display = "none";
-            
-            
-            
-            // SUMA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
-            const botonSumar = infoProducto.querySelector(".boton-sumar");
-            botonSumar.addEventListener("click", (event) => {
-              if ( contador != cantidad) {
-                var precio = infoProducto.querySelector("p");
-                var contadorDiv = infoProducto.querySelector("h6:last-of-type");
+          arregloProductos.push(infoProducto);
+          const seccionDestino = document.querySelector("#seccion-carrito");
+          seccionDestino.appendChild(infoProducto);
+          divTotal.style.display = "none";
 
-                contador = contador + 1;
-                let precioTotal = contador * parseFloat(precioProducto);
-
-                contadorDiv.textContent = contador;
-                precio.textContent = "$" + precioTotal;
-                let carritoTotal = 0;
-                for (let i = 0; i < arregloProductos.length; i++) {
-                  let elementoP = arregloProductos[i].querySelector("p");
-                  let contenidoP = elementoP.textContent;
-                  carritoTotal += parseFloat(contenidoP.replace("$", ""));
-                }
-
-                const confirmar = document.querySelector("#confirmar");
-                confirmar.querySelector("p").textContent =
-                  "Precio total del carrito: $" + carritoTotal;
-              } else { alert("STOCK NO DISPONIBLE") }
-
-
-            });
-
-            // RESTA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
-            const botonRestar = infoProducto.querySelector(".boton-restar");
-            botonRestar.addEventListener("click", (event) => {
-              
+          // SUMA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
+          const botonSumar = infoProducto.querySelector(".boton-sumar");
+          botonSumar.addEventListener("click", (event) => {
+            if (contador != cantidad) {
               var precio = infoProducto.querySelector("p");
               var contadorDiv = infoProducto.querySelector("h6:last-of-type");
 
-              contador = contador - 1;
+              contador = contador + 1;
               let precioTotal = contador * parseFloat(precioProducto);
 
               contadorDiv.textContent = contador;
               precio.textContent = "$" + precioTotal;
-
-              if (contador < 1) {
-                let index = arregloProductos.indexOf(infoProducto);
-                arregloProductos.splice(index, 1);
-                infoProducto.remove();
-                boton.disabled = false;
-              }
-
               let carritoTotal = 0;
               for (let i = 0; i < arregloProductos.length; i++) {
                 let elementoP = arregloProductos[i].querySelector("p");
                 let contenidoP = elementoP.textContent;
-                carritoTotal = carritoTotal + parseFloat(contenidoP.replace("$", ""));
+                carritoTotal += parseFloat(contenidoP.replace("$", ""));
               }
 
               const confirmar = document.querySelector("#confirmar");
               confirmar.querySelector("p").textContent =
                 "Precio total del carrito: $" + carritoTotal;
-            });
+            } else {
+              alert("STOCK NO DISPONIBLE");
+            }
           });
-        
-      });
 
+          // RESTA el precio total por producto dependiendo cuantos items tenga incluido, y si ya le dimos comprar y restamos un producto, tambien se actualiza el valor total de la compra
+          const botonRestar = infoProducto.querySelector(".boton-restar");
+          botonRestar.addEventListener("click", (event) => {
+            var precio = infoProducto.querySelector("p");
+            var contadorDiv = infoProducto.querySelector("h6:last-of-type");
+
+            contador = contador - 1;
+            let precioTotal = contador * parseFloat(precioProducto);
+
+            contadorDiv.textContent = contador;
+            precio.textContent = "$" + precioTotal;
+
+            if (contador < 1) {
+              let index = arregloProductos.indexOf(infoProducto);
+              arregloProductos.splice(index, 1);
+              infoProducto.remove();
+              boton.disabled = false;
+            }
+
+            let carritoTotal = 0;
+            for (let i = 0; i < arregloProductos.length; i++) {
+              let elementoP = arregloProductos[i].querySelector("p");
+              let contenidoP = elementoP.textContent;
+              carritoTotal =
+                carritoTotal + parseFloat(contenidoP.replace("$", ""));
+            }
+
+            const confirmar = document.querySelector("#confirmar");
+            confirmar.querySelector("p").textContent =
+              "Precio total del carrito: $" + carritoTotal;
+          });
+        });
+      });
 
       ///click en comprar y nos muestra el valor final y nos sale un boton nuevo que dice "confirmar compra" para pasar a la pagina de confirmacion
       const botonComprar = document.querySelector("#boton-comprar");
@@ -310,7 +166,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         divTotal.style.display = "Block";
         divTotal.id = "confirmar";
         divTotal.innerHTML = `
-                              <p>${"Precio total del carrito: $" + carritoTotal}</p>
+                              <p>${"Precio total del carrito: $" + carritoTotal
+          }</p>
                               <button id="btn-confirmar"> Confirmar comprar </button>
                               `;
 
@@ -344,8 +201,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             localStorage.setItem("productos", objetoJSON);
             // Redireccionar hacia la página "confirmar-compra.html"
             window.location.href = "confirmar-compra.html";
-          }
-          else {
+          } else {
             alert("Carrito vacio, porfavor ingresa productos");
           }
         });
@@ -366,7 +222,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         arregloProductos.splice(0, arregloProductos.length); //BORRO EL ARREGLO, PARA QUE SE RENICIE EL CARRITO Y EL VALOR TOTAL
       });
 
-
       const carritoEnCelu = document.querySelector("#carritoEnCelu");
       let clickeado = false;
       carritoEnCelu.addEventListener("click", function () {
@@ -374,7 +229,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const seccionCarritoCelu = document.querySelector(".nav");
         carritoEnCelu.style.marginLeft = "15px";
         if (clickeado) {
-          carritoEnCelu.style.border = "solid red"
+          carritoEnCelu.style.border = "solid red";
           carritoEnCelu.style.borderRadius = "3px";
           const scrollTopPos = window.scrollY + 40;
           seccionCarritoCelu.style.marginTop = `${scrollTopPos}px`;
@@ -394,13 +249,143 @@ window.addEventListener('DOMContentLoaded', (event) => {
         var cantidadHijos = seccionDestino.childElementCount;
         return cantidadHijos;
       }
-
-
     })
-    .catch(error => {
-      console.error('Error:', error);
+    .catch((error) => {
+      console.error("Error:", error);
     });
+
+  const buscarInput = document.getElementById("buscar");
+  const productos = document.getElementsByClassName("producto");
+  const footer = document.querySelector(".pie");
+  const siguienteInput = document.getElementById("siguiente");
+  const anteriorInput = document.getElementById("anterior");
+  const h3Element = document.getElementById("numero-pagina");
+  const cruz = document.getElementById("borrar-busquedad");
+  const filtroBorrar = document.getElementById("borrar-filtros");
+  var arregloProductos = [];
+  const divTotal = document.createElement("div");
+
+  buscarInput.addEventListener("input", function () {
+    const searchTerm = buscarInput.value.toLowerCase();
+    Array.from(productos).forEach(function (producto) {
+      const nombreProducto = producto
+        .getElementsByTagName("h3")[0]
+        .textContent.toLowerCase();
+      if (nombreProducto.includes(searchTerm) && searchTerm.length >= 3) {
+        producto.style.display = "Block";
+        footer.style.display = "none";
+      } else {
+        producto.style.display = "none";
+        footer.style.display = "none";
+      }
+      if (searchTerm == "") {
+        producto.style.display = "block";
+      }
+    });
+  });
+
+  ///al apretar la cruz roja, llama al afuncion buscarInput
+  cruz.addEventListener("click", function () {
+    buscarInput.value = "";
+    buscarInput.dispatchEvent(new Event("input"));
+  });
+
+
+  // ocultar productos por clase
+  function ocultarElementosPorClase(clase) {
+    const elementos = document.getElementsByClassName(clase);
+    for (let i = 0; i < elementos.length; i++) {
+      elementos[i].style.display = "none";
+    }
+  }
+
+  // mostrar prodcutos por clase
+  function mostrarElementosPorClase(clase) {
+    const elementos = document.getElementsByClassName(clase);
+    for (let i = 0; i < elementos.length; i++) {
+      elementos[i].style.display = "block";
+    }
+  }
+
+  // ocultar productos pag2 y pag3... asi quedan solo los de la pag1const h3Element = document.getElementById("numero-pagina");
+  ocultarElementosPorClase("pag2");
+  ocultarElementosPorClase("pag3");
+  anteriorInput.style.display = "none";
+
+  // footer siguiente y anterior
+  siguienteInput.addEventListener("click", function () {
+    if (h3Element.textContent === "1 de 3") {
+      ocultarElementosPorClase("pag1");
+      mostrarElementosPorClase("pag2");
+      anteriorInput.style.display = "Block";
+      h3Element.textContent = "2 de 3";
+    } else if (h3Element.textContent === "2 de 3") {
+      ocultarElementosPorClase("pag2");
+      mostrarElementosPorClase("pag3");
+      anteriorInput.style.display = "Block";
+      siguienteInput.style.display = "none";
+      h3Element.textContent = "3 de 3";
+    }
+  });
+
+  anteriorInput.addEventListener("click", function () {
+    if (h3Element.textContent === "2 de 3") {
+      ocultarElementosPorClase("pag2");
+      mostrarElementosPorClase("pag1");
+      h3Element.textContent = "1 de 3";
+      anteriorInput.style.display = "none";
+      siguienteInput.style.display = "Block";
+    } else if (h3Element.textContent === "3 de 3") {
+      ocultarElementosPorClase("pag3");
+      mostrarElementosPorClase("pag2");
+      h3Element.textContent = "2 de 3";
+      anteriorInput.style.display = "Block";
+      siguienteInput.style.display = "Block";
+    }
+  });
+
+  ///-------FILTROS--------------
+
+  //ALIMENTOS
+  document.getElementById("alimentos").addEventListener("click", function () {
+    ocultarElementosPorClase("F-juguetes");
+    ocultarElementosPorClase("F-varios");
+    ocultarElementosPorClase("F-estetica");
+    mostrarElementosPorClase("F-alimentos");
+    footer.style.display = "none";
+  });
+
+  //JUGETES
+  document.getElementById("juguetes").addEventListener("click", function () {
+    ocultarElementosPorClase("F-alimentos");
+    ocultarElementosPorClase("F-varios");
+    ocultarElementosPorClase("F-estetica");
+    mostrarElementosPorClase("F-juguetes");
+    footer.style.display = "none";
+  });
+
+  //VARIOS
+  document.getElementById("varios").addEventListener("click", function () {
+    ocultarElementosPorClase("F-juguetes");
+    ocultarElementosPorClase("F-alimentos");
+    ocultarElementosPorClase("F-estetica");
+    mostrarElementosPorClase("F-varios");
+    footer.style.display = "none";
+  });
+
+  //ESTETICA
+  document.getElementById("estetica").addEventListener("click", function () {
+    ocultarElementosPorClase("F-juguetes");
+    ocultarElementosPorClase("F-varios");
+    ocultarElementosPorClase("F-alimentos");
+    mostrarElementosPorClase("F-estetica");
+    footer.style.display = "none";
+  });
+
+  //eliminar filtro
+
+  filtroBorrar.addEventListener("click", function () {
+    buscarInput.value = "";
+    buscarInput.dispatchEvent(new Event("input"));
+  });
 });
-
-
-
