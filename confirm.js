@@ -32,7 +32,7 @@ if (carrito) {
     let infoElement = document.createElement("div");
     infoElement.classList.add("producto-info");
     infoElement.innerHTML = `
-      <p>${carrito[i].articulo}</p>
+      <h3>${carrito[i].articulo}</h3>
       <p>${carrito[i].precio}</p>
     `;
     /*Se crea un div que contiene la imagen del producto + otro div que 
