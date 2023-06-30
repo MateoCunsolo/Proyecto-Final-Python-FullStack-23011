@@ -103,8 +103,6 @@
         <div class="container-prductos-footer">
 
             <div class="productos">
-
-
             </div>
 
             <div class="chat-bot">
@@ -124,7 +122,66 @@
         </div>
 
         <section>
-
+            <script>
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    const apiURL = "https://mateocunsolo.pythonanywhere.com/productos";
+            
+                    // Realizar solicitud a la API
+                    fetch(apiURL)
+                        .then(response => response.json())
+                        .then(data => {
+                            // Manipular los datos obtenidos de la API
+                            const productosContainer = document.querySelector(".productos");
+            
+                            data.forEach((producto) => {
+                                // Crear un nuevo elemento <div> con la clase "producto"
+                                const productoElement = document.createElement("div");
+                                productoElement.classList.add("producto");
+            
+                                // Crear elementos internos para mostrar los valores del producto
+                                const imagenElement = document.createElement("img");
+                                imagenElement.src = producto.imagen;
+            
+                                const nombreElement = document.createElement("h3");
+                                nombreElement.textContent = producto.descripcion;
+            
+                                const cantidadElement = document.createElement("h5");
+                                let mensaje = "";
+                                if (producto.cantidad > 1) {
+                                    mensaje = "Stock disponible";
+                                } else if (producto.cantidad === 1) {
+                                    mensaje = "Último disponible!";
+                                } else {
+                                    mensaje = "No disponible";
+                                }
+                                cantidadElement.textContent = mensaje;
+            
+                                const precioElement = document.createElement("p");
+                                precioElement.textContent = producto.precio;
+            
+                                const carritoButton = document.createElement("button");
+                                carritoButton.classList.add("carrito");
+                                carritoButton.textContent = "Agregar al carrito";
+            
+                                // Agregar elementos internos al elemento producto
+                                productoElement.appendChild(imagenElement);
+                                productoElement.appendChild(nombreElement);
+                                productoElement.appendChild(precioElement);
+                                productoElement.appendChild(cantidadElement);
+                                productoElement.appendChild(carritoButton);
+            
+                                // Agregar el elemento producto al contenedor de productos
+                                if (mensaje !== "No disponible") {
+                                    productosContainer.appendChild(productoElement);
+                                }
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                });
+            </script>
+            
            <script src="main.js"></script>
 </body>
 

@@ -1,53 +1,3 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-  const apiURL = "https://mateocunsolo.pythonanywhere.com/productos";
-
-  // Realizar solicitud a la API
-  fetch(apiURL)
-      .then(response => response.json())
-      .then(data => {
-          // Manipular los datos obtenidos de la API
-          const productosContainer = document.querySelector(".productos");
-
-          data.forEach((producto) => {
-              // Crear un nuevo elemento <div> con la clase "producto"
-              const productoElement = document.createElement("div");
-              productoElement.classList.add("producto");
-
-              // Crear elementos internos para mostrar los valores del producto
-              const imagenElement = document.createElement("img");
-              imagenElement.src = producto.imagen;
-              
-              const nombreElement = document.createElement("h4");
-              nombreElement.textContent = producto.descripcion;
-
-              const cantidadElement = document.createElement("h5");
-              cantidadElement.textContent = "Cantidad disponible: " +producto.cantidad;
-
-              const precioElement = document.createElement("p");
-              precioElement.textContent = producto.precio;
-
-              const carritoButton = document.createElement("button");
-              carritoButton.classList.add("carrito");
-              carritoButton.textContent = "Agregar al carrito";
-
-              // Agregar elementos internos al elemento producto
-              productoElement.appendChild(imagenElement);
-              productoElement.appendChild(nombreElement);
-              productoElement.appendChild(precioElement);
-              productoElement.appendChild(cantidadElement);
-              productoElement.appendChild(carritoButton);
-
-              // Agregar el elemento producto al contenedor de productos
-              productosContainer.appendChild(productoElement);
-          });
-      })
-      .catch(error => {
-          console.error('Error:', error);
-      });
-});
-
-
-
 const buscarInput = document.getElementById("buscar");
 const productos = document.getElementsByClassName("producto");
 const footer = document.querySelector(".pie");
@@ -186,13 +136,14 @@ filtroBorrar.addEventListener("click", function () {
   buscarInput.dispatchEvent(new Event("input"));
 });
 
+
 /*EL BUCLE FOR EACH RECORRE TODOS LOS PRODUCTOS COLOCADOS EN LA PÁGINA, Y CUANDO EN ALGUNO DE ELLOS SE APRETA EL BOTÓN "AGREGAR AL CARRITO" 
 DE UN PRODUCTO, SE CREA UN NUEVO ELEMENTO EN LA SECCIÓN DEL CARRITO QUE CONTIENE LA INFORMACIÓN DE ESE PRODUCTO. DE ESTA MANERA, SE VA 
 CONSTRUYENDO DINÁMICAMENTE EL CONTENIDO DEL CARRITO A MEDIDA QUE SE VAN AGREGANDO PRODUCTOS.*/
 const botonesCarrito = document.querySelectorAll(".carrito");
 botonesCarrito.forEach((boton) => {
   boton.addEventListener("click", (event) => {
-
+    alert("jhoasdasdsa");
     const contadorCarrito = document.querySelector("#contadorCarrito");
     contadorCarrito.textContent = contarHijosSeccionCarrito();
     contadorCarrito.style.color = "RED";
