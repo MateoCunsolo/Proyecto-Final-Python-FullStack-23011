@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de API</title>
+</head>
+<body>
+    <h1>Contenido de la API</h1>
+    <div id="api-content"></div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const apiURL = "https://mateocunsolo.pythonanywhere.com/productos"; // Reemplaza esto con la URL de tu API
+
+            // Realizar solicitud a la API
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(data => {
+                    // Manipular los datos obtenidos de la API
+                    const apiContent = document.getElementById('api-content');
+                    apiContent.innerHTML = JSON.stringify(data); // Ejemplo: mostrar los datos como texto JSON
+                })
+                .catch(error => {
+                    alert('Error:', error);
+                });
+        });
+
+
+    </script>
+</body>
+</html>
