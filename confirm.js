@@ -33,7 +33,7 @@ if (carrito) {
     infoElement.classList.add("producto-info");
     infoElement.innerHTML = `
       <h3>${carrito[i].articulo} [ Codigo: ${carrito[i].codigo} ]</h3>
-      <p>${"$"+carrito[i].precio} ( Unidades: ${carrito[i].cantidad} )</p>
+      <p>${carrito[i].precio} ( Unidades: ${carrito[i].cantidad} )</p>
     `;
     /*Se crea un div que contiene la imagen del producto + otro div que 
     contien la informacion del mismo (titulo + precio) */
@@ -351,14 +351,13 @@ botonMercadoPago.addEventListener("click", function () {
         }
         const data = await response.json();
         const cantidadAUX = data.cantidad;
-  
-        // Calcular la cantidad actualizada
+
         const producto = {
-          codigo: carrito[i].codigo,
-          descripcion: carrito[i].articulo,
+          codigo: data.codigo,
+          descripcion: data.descripcion,
           cantidad: cantidadAUX - carrito[i].cantidad,
-          precio: carrito[i].precio,
-          imagen: carrito[i].imagen
+          precio:  data.precio,
+          imagen:  data.imagen
         };
   
         // Guardar los cambios del producto
