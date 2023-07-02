@@ -373,8 +373,6 @@ var cantidadAUX = 0;
         }
   
         const responseData = await putResponse.json();
-        
-        
       } catch (error) {
         // Código para manejar errores
         alert(error.message);
