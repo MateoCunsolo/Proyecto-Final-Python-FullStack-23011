@@ -373,13 +373,14 @@ var cantidadAUX = 0;
         }
   
         const responseData = await putResponse.json();
-        alert('Cambios guardados correctamente.');
-        window.location.href = "shop-pag1.html";
+        
+        
       } catch (error) {
         // Código para manejar errores
         alert(error.message);
       }
     }
+    window.location.href = "shop-pag1.html";
   });
 
 
