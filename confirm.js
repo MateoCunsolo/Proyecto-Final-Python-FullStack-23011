@@ -340,7 +340,6 @@ checkbox2.addEventListener("change", function () {
 const URL = "https://mateocunsolo.pythonanywhere.com/"
 const botonMercadoPago = document.querySelector("#mp-btn");
 var cantidadAUX = 0;
-botonMercadoPago.addEventListener("click", function () {
   botonMercadoPago.addEventListener("click", async function () {
     for (var i = 0; i < carrito.length; i++) {
       try {
@@ -375,16 +374,14 @@ botonMercadoPago.addEventListener("click", function () {
   
         const responseData = await putResponse.json();
         alert('Cambios guardados correctamente.');
-        location.reload();
+        window.location.href = "shop-pag1.html";
       } catch (error) {
         // Código para manejar errores
         alert(error.message);
       }
     }
   });
-  
 
-});
 
 
 
