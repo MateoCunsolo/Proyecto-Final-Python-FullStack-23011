@@ -21,6 +21,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
         const imagenElement = document.createElement("img");
         imagenElement.src = producto.imagen;
 
+        const codigoElement = document.createElement("h4");
+        codigoElement.textContent = producto.codigo;
+
         const nombreElement = document.createElement("h3");
         nombreElement.textContent = producto.descripcion;
 
@@ -47,12 +50,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
         // Agregar elementos internos al elemento producto
         productoElement.appendChild(imagenElement);
+        productoElement.appendChild(codigoElement);
         productoElement.appendChild(nombreElement);
         productoElement.appendChild(precioElement);
         productoElement.appendChild(cantidadElement);
         productoElement.appendChild(carritoButton);
         productoElement.appendChild(cantidadValor);
         cantidadValor.style.display = "none";
+        codigoElement.style.display = "none";
 
         // Agregar el elemento producto al contenedor de productos
         if (mensaje !== "No disponible") {
@@ -73,6 +78,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
             contenedorProducto.querySelector("h3").textContent;
           var precioProducto =
             contenedorProducto.querySelector("p").textContent;
+          var codigo =
+            contenedorProducto.querySelector("h4").textContent;
           const imagenProducto = contenedorProducto.querySelector("img").src;
           var cantidad = contenedorProducto.querySelector("h6").textContent;
           let contador = 1;
@@ -80,13 +87,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
           const infoProducto = document.createElement("div");
           infoProducto.classList.add("producto-carrito");
           infoProducto.innerHTML = `
-                              <img src="${imagenProducto}">
-                              <h6>${nombreProducto}</h6>
-                              <p>${"$" + precioProducto}</p>
-                              <button class="boton-sumar">+</button>
-                              <button class="boton-restar">-</button>
-                              <h6>${contador}</h6>
-                              `;
+                    <img src="${imagenProducto}">
+                    <h5>${nombreProducto}</h5>
+                    <p>${"$" + precioProducto}</p>
+                    <button class="boton-sumar">+</button>
+                    <button class="boton-restar">-</button>
+                    <h6>${contador}</h6>
+                    <h1 style="display: none;">${codigo}</h1>
+                  `;
           arregloProductos.push(infoProducto);
           const seccionDestino = document.querySelector("#seccion-carrito");
           seccionDestino.appendChild(infoProducto);
@@ -183,14 +191,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
             let productosFinales = []; // Declarar el arreglo de productosFinales
             for (let i = 0; i < arregloProductos.length; i++) {
               // Acceder al contenido de cada etiqueta (descripción del producto y su precio)
-              let nombre = arregloProductos[i].querySelector("h6");
+              let nombre = arregloProductos[i].querySelector("h5");
               let precio = arregloProductos[i].querySelector("p");
               let img = arregloProductos[i].querySelector("img");
+              let codigo0 = arregloProductos[i].querySelector("h1");
+              let cantidad0 = arregloProductos[i].querySelector("h6");
 
               let objeto = {
                 articulo: nombre.textContent,
                 precio: precio.textContent,
                 imagen: img.src,
+                cantidad: cantidad0.textContent,
+                codigo: codigo0.textContent
               };
               // Agregar objeto al arreglo productosFinales
               productosFinales[i] = objeto;
@@ -209,6 +221,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
       const botonEliminar = document.querySelector("#boton-eliminar");
       botonEliminar.addEventListener("click", (event) => {
+
+
+        const botonesCarrito2 = document.querySelectorAll(".carrito");
+        botonesCarrito2.forEach((boton) => {
+          boton.disabled = false;
+        })
+
+
+
         const seccion = document.querySelector("#seccion-carrito");
         let i = seccion.children.length;
         while (seccion.children[i - 1] && i > 1) {
