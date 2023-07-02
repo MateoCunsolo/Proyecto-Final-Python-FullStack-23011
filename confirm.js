@@ -33,7 +33,7 @@ if (carrito) {
     infoElement.classList.add("producto-info");
     infoElement.innerHTML = `
       <h3>${carrito[i].articulo} [ Codigo: ${carrito[i].codigo} ]</h3>
-      <p>${carrito[i].precio} ( Unidades: ${carrito[i].cantidad} )</p>
+      <p>${"$"+carrito[i].precio} ( Unidades: ${carrito[i].cantidad} )</p>
     `;
     /*Se crea un div que contiene la imagen del producto + otro div que 
     contien la informacion del mismo (titulo + precio) */
@@ -102,12 +102,11 @@ checkbox1.addEventListener("change", function () {
     elimina el último hijo del elemento. Que aqui estaria eliminando el hijo que muestra los datos del cliente
     con los atributos de los input: quien retira por la sucursal principal*/
     let hijosCarritoDespues = carritoFin.children.length;
-    if(hijosCarritoDespues > hijosCarritoAntes)
-    {
+    if (hijosCarritoDespues > hijosCarritoAntes) {
       ultimoHijo = carritoFin.lastChild;
       carritoFin.removeChild(ultimoHijo);
     }
-    
+
 
 
     //cambio el costo de envio de 0.0 a -> "$ Esperando codigo postal..." ya que todavia no se coloco el codigo postal para calcular el envio
@@ -282,8 +281,7 @@ checkbox2.addEventListener("change", function () {
     elimina el último hijo del elemento. Que aqui estaria eliminando el hijo que muestra los datos del cliente
     con los atributos de los input: ciudad, direccion, quien recibe, codigo postal, boton de calcular costo de envio*/
     let hijosCarritoDespues = carritoFin.children.length;
-    if(hijosCarritoDespues > hijosCarritoAntes)
-    {
+    if (hijosCarritoDespues > hijosCarritoAntes) {
       ultimoHijo = carritoFin.lastChild;
       carritoFin.removeChild(ultimoHijo);
     }
@@ -339,16 +337,54 @@ checkbox2.addEventListener("change", function () {
   }
 });
 
-
+const URL = "https://mateocunsolo.pythonanywhere.com/"
 const botonMercadoPago = document.querySelector("#mp-btn");
+var cantidadAUX = 0;
 botonMercadoPago.addEventListener("click", function () {
-  const datosCliente = document.querySelector("#datosCliente00");
-  const informacion = datosCliente.innerHTML;
-  alert(informacion);
-
-  /* LA IDEA ACA ES MANDAR AL MAIL DE LA EMPRESA, LA ORDEN DE COMPRA (CON DATOS DEL CLIENTE YA SEA POR ENVIO O RETIRO EN SUCURSAL) 
-  Y UTLIZAR LA API DE MERCADOPAGO PARA PODER REALIZAR EL PAGO*/
+  botonMercadoPago.addEventListener("click", async function () {
+    for (var i = 0; i < carrito.length; i++) {
+      try {
+        // Obtener los datos del producto
+        const response = await fetch(URL + 'productos/' + carrito[i].codigo);
+        if (!response.ok) {
+          throw new Error('Error al obtener los datos del producto.');
+        }
+        const data = await response.json();
+        const cantidadAUX = data.cantidad;
   
+        // Calcular la cantidad actualizada
+        const producto = {
+          codigo: carrito[i].codigo,
+          descripcion: carrito[i].articulo,
+          cantidad: cantidadAUX - carrito[i].cantidad,
+          precio: carrito[i].precio,
+          imagen: carrito[i].imagen
+        };
+  
+        // Guardar los cambios del producto
+        const putResponse = await fetch(URL + 'productos/' + carrito[i].codigo, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(producto)
+        });
+  
+        if (!putResponse.ok) {
+          throw new Error('Error al guardar los cambios del producto.');
+        }
+  
+        const responseData = await putResponse.json();
+        alert('Cambios guardados correctamente.');
+        location.reload();
+      } catch (error) {
+        // Código para manejar errores
+        alert(error.message);
+      }
+    }
+  });
+  
+
 });
 
 

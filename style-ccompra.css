@@ -5,6 +5,8 @@ body{
     background-color: #eee;
 }
 
+
+
 .contenedor{
     display: grid;
     gap: 20px;
@@ -206,9 +208,21 @@ body{
     justify-content: end;
 }
 
+
+#mp-btn button:hover
+{
+    background-color: blue;
+    color: white;
+}
+
+#mp-btn button
+{
+    background-color: cadetblue;
+    color: #000;
+}
+
 #arrow
 {  
     font-weight: bold;
     font-size: 16px;
 }
-  

@@ -89,7 +89,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
           infoProducto.innerHTML = `
                     <img src="${imagenProducto}">
                     <h5>${nombreProducto}</h5>
-                    <p>${"$" + precioProducto}</p>
+                    <p>${precioProducto}</p>
                     <button class="boton-sumar">+</button>
                     <button class="boton-restar">-</button>
                     <h6>${contador}</h6>
