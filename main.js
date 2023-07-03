@@ -51,7 +51,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
         if (mensaje == "Sin stock") {
           cantidadElement.style.color = "Red";
-          carritoButton.style.backgroundColor = "Red";
+          carritoButton.style.backgroundColor = "#ff6961";
+          carritoButton.style.borderColor = "Black";
           carritoButton.disabled = true;
           carritoButton.textContent = "\tSin stock\t";
           cantidadElement.style.visibility = "hidden";
@@ -71,7 +72,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
       const botonesCarrito = document.querySelectorAll(".carrito");
       botonesCarrito.forEach((boton) => {
-        boton.addEventListener("click", (event) => {
+          boton.addEventListener("click", (event) => {
+          boton.textContent = "En carrito"
+          boton.style.backgroundColor = "#18bc78";
+          boton.style.borderColor = "Black";
           boton.disabled = true;
           const contadorCarrito = document.querySelector("#contadorCarrito");
           contadorCarrito.textContent = contarHijosSeccionCarrito();
@@ -148,6 +152,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
               arregloProductos.splice(index, 1);
               infoProducto.remove();
               boton.disabled = false;
+              boton.textContent = "Agregar al carrito"
+              boton.style.backgroundColor = "cornflowerblue";
+
             }
 
             let carritoTotal = 0;
@@ -227,8 +234,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
       botonEliminar.addEventListener("click", (event) => {
         const botonesCarrito2 = document.querySelectorAll(".carrito");
         botonesCarrito2.forEach((boton) => {
-          if (boton.textContent == "Agregar al carrito") {
+          if (boton.textContent == "En carrito") {
             boton.disabled = false;
+            boton.textContent = "Agregar al carrito"
+            boton.style.backgroundColor = "cornflowerblue";
           }
           
         })
