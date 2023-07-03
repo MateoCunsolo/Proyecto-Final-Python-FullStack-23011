@@ -34,10 +34,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
         } else if (producto.cantidad === 1) {
           mensaje = "Último disponible!";
         } else {
-          mensaje = "No disponible";
+          mensaje = "Sin stock";
         }
         cantidadElement.textContent = mensaje;
-
+      
         const cantidadValor = document.createElement("h6");
         cantidadValor.textContent = producto.cantidad;
 
@@ -47,7 +47,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
         const carritoButton = document.createElement("button");
         carritoButton.classList.add("carrito");
         carritoButton.textContent = "Agregar al carrito";
+        
 
+        if (mensaje == "Sin stock") {
+          cantidadElement.style.color = "Red";
+          carritoButton.style.backgroundColor = "Red";
+          carritoButton.disabled = true;
+          carritoButton.textContent = "\tSin stock\t";
+          cantidadElement.style.visibility = "hidden";
+        }
         // Agregar elementos internos al elemento producto
         productoElement.appendChild(imagenElement);
         productoElement.appendChild(codigoElement);
@@ -58,11 +66,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         productoElement.appendChild(cantidadValor);
         cantidadValor.style.display = "none";
         codigoElement.style.display = "none";
-
-        // Agregar el elemento producto al contenedor de productos
-        if (mensaje !== "No disponible") {
-          productosContainer.appendChild(productoElement);
-        }
+        productosContainer.appendChild(productoElement);
       });
 
       const botonesCarrito = document.querySelectorAll(".carrito");
@@ -89,7 +93,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
           infoProducto.innerHTML = `
                     <img src="${imagenProducto}">
                     <h5>${nombreProducto}</h5>
-                    <p>${"$"+precioProducto}</p>
+                    <p>${"$" + precioProducto}</p>
                     <button class="boton-sumar">+</button>
                     <button class="boton-restar">-</button>
                     <h6>${contador}</h6>
@@ -221,11 +225,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
       const botonEliminar = document.querySelector("#boton-eliminar");
       botonEliminar.addEventListener("click", (event) => {
-
-
         const botonesCarrito2 = document.querySelectorAll(".carrito");
         botonesCarrito2.forEach((boton) => {
-          boton.disabled = false;
+          if (boton.textContent == "Agregar al carrito") {
+            boton.disabled = false;
+          }
+          
         })
 
 
